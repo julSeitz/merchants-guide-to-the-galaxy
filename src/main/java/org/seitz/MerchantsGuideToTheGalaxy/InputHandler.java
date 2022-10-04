@@ -105,7 +105,11 @@ public class InputHandler {
      * @param intergalacticNumeral  the intergalactic numeral given
      * @return                      the equivalent roman numeral
      */
-    public String getRomanNumeralFromIntergalacticNumeral(String intergalacticNumeral) {
+    public String getRomanNumeralFromIntergalacticNumeral(String intergalacticNumeral) throws Exception {
+        if (!this.intergalacticRomanDictionary.containsKey(intergalacticNumeral)) {
+            throw new Exception("Numeral " + intergalacticNumeral + " is unknown");
+        }
+
         return this.intergalacticRomanDictionary.get(intergalacticNumeral);
     }
 
