@@ -77,4 +77,10 @@ class InputHandlerTest {
     void mineralShouldNotBeKnown() {
         assertFalse(handler.isMineralKnown("Silver"));
     }
+
+    @Test
+    void mineralShouldBeKnown() {
+        handler.addMineralValue("Silver", 98.2);
+        assertTrue(handler.isMineralKnown("Silver"));
+    }
 }
