@@ -135,7 +135,7 @@ public class InputHandler {
      * @return              the value of one unit of the given mineral
      */
     public double getMineralValue(String mineralName) {
-        return 0;
+        return this.mineralValueList.get(mineralName);
     }
 
     /**
