@@ -183,5 +183,16 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    @TestFactory
+    Stream<DynamicTest> shouldNotBeAbleToEnterTheseUpperCaseLetters() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputSymbols = Arrays.asList("ABEFGHJKNOPQRSTUWYZ".split(""));
+
+        return inputSymbols.stream().map(
+                symbol -> DynamicTest.dynamicTest(symbol + " contains an illegal character",
+                        () -> assertFalse(secondCalculator.isValidNumeral(symbol))
+                ));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
