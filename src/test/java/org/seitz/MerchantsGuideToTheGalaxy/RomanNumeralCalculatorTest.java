@@ -165,5 +165,10 @@ class RomanNumeralCalculatorTest {
         assertFalse(calculator.isValidNumeral("IIX"));
     }
 
+    @Test
+    void shouldNotBeAbleToSubtractTheResultOfASubtraction() {
+        assertFalse(calculator.isValidNumeral("VIX"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
