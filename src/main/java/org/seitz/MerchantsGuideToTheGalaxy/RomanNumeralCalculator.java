@@ -16,7 +16,7 @@ public class RomanNumeralCalculator {
     /**
      * An internal dictionary translating between roman and arabic numerals
      */
-    private Map<String, Integer> romanNumerals = new HashMap<>();
+    private final Map<String, Integer> romanNumerals = new HashMap<>();
 
     /**
      * This constructor sets the values for each roman numeral
