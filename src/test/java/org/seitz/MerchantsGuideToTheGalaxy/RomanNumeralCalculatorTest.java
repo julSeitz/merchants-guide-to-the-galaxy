@@ -265,6 +265,20 @@ class RomanNumeralCalculatorTest {
         assertEquals(19, calculator.getNumeralValue("XIX"));
     }
 
+    // Testing if each valid subtraction is done correctly
+
+    @TestFactory
+    Stream<DynamicTest> isEachValidSubtractionCorrect() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputNumerals = Arrays.asList("IV", "IX", "XL", "XC", "CD", "CM");
+        List<Integer> outputNumbers = Arrays.asList(4, 9, 40, 90, 400, 900);
+
+        return inputNumerals.stream().map(
+                numeral -> DynamicTest.dynamicTest(numeral + " should equal " + outputNumbers.get(inputNumerals.indexOf(numeral)),
+                        () -> assertEquals(outputNumbers.get(inputNumerals.indexOf(numeral)), secondCalculator.getNumeralValue(numeral))
+                ));
+    }
+
 
     //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
 
