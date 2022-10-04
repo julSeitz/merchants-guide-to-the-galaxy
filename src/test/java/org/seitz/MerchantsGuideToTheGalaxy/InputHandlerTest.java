@@ -109,4 +109,14 @@ class InputHandlerTest {
         assertEquals(4.35, handler.calculateValueOfOneUnit(4, 17.4));
     }
 
+    //-------------------------------END OF TESTS FOR calculateValueOfOneUnit()-----------------------------------------
+
+    //-------------------------------START OF TESTS FOR getValueOfXUnits()----------------------------------------------
+
+    @Test
+    void shouldEqualSixHundredSeventyFivePointSevenFour() {
+        handler.addMineralValue("Silver", 29.38);
+        assertEquals(675.74, handler.getValueOfXUnits(23, "Silver"));
+    }
+
 }
