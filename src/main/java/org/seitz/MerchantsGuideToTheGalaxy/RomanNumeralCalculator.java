@@ -48,6 +48,16 @@ public class RomanNumeralCalculator {
             return false;
         }
 
+        // check for 3 times "I", "X", "C" or "M" rule
+
+        pattern = Pattern.compile("[I]{4,}|[X]{3}[MCDLV]*[X]|[C]{3}[MDLVI]*[C]|[M]{3}[VXDIL]*[M]");
+        matcher = pattern.matcher(numeral);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return false;
+        }
+
         // TODO: implement
         return true;
     }
