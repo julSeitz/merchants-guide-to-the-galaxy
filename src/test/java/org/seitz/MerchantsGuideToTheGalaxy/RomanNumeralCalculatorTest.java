@@ -95,5 +95,10 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    @Test
+    void shouldBeAbleToSubtractIFromX() {
+        assertTrue(calculator.isValidNumeral("IX"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
