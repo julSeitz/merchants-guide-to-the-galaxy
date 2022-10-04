@@ -66,4 +66,10 @@ class InputHandlerTest {
         handler.updateMineralValue("Silver", 79.3);
         assertEquals(79.3, handler.getMineralValue("Silver"));
     }
+
+    @Test
+    void shouldThrowExceptionWhenUnknownMineralIsUpdated() throws Exception {
+        assertThrows(Exception.class,
+                () -> handler.updateMineralValue("Silver", 87.4));
+    }
 }
