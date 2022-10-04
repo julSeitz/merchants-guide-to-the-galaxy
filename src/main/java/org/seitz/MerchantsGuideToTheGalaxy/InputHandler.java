@@ -96,7 +96,7 @@ public class InputHandler {
      * @return          answer if mineral already has a corresponding Credit value
      */
     public boolean isMineralKnown(String mineral) {
-        return false;
+        return this.mineralValueList.containsKey(mineral);
     }
 
     /**
