@@ -117,5 +117,10 @@ class RomanNumeralCalculatorTest {
         assertFalse(calculator.isValidNumeral("XM"));
     }
 
+    @Test
+    void shouldNotBeAbleToSubtractXFromL() {
+        assertFalse(calculator.isValidNumeral("XL"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
