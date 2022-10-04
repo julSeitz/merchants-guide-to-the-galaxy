@@ -279,6 +279,14 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    // Testing if exception is thrown when numeral is invalid
+
+    @Test
+    void subtractingDShouldThrowException() {
+        assertThrows(Exception.class,
+                () -> calculator.getNumeralValue("DM"));
+    }
+
 
     //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
 
