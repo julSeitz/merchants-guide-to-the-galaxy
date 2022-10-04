@@ -28,4 +28,11 @@ class InputHandlerTest {
         handler.updateIntergalacticNumeral("gek", "IX");
         assertEquals("IX", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
     }
+
+    @Test
+    void shouldThrowExceptionWhenUnknownNumeralIsUpdated() throws Exception {
+        assertThrows(Exception.class,
+                () -> handler.updateIntergalacticNumeral("gek", "IX"));
+    }
+
 }
