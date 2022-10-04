@@ -88,14 +88,25 @@ class InputHandlerTest {
 
     //-------------------------------START OF TESTS FOR calculateValueOfOneUnit()---------------------------------------
 
+    // Testing if division works for even results
+
     @Test
     void shouldEqualFive() {
         assertEquals(5.0, handler.calculateValueOfOneUnit(20, 100.0));
     }
 
+    // Testing of division works for odd results
+
     @Test
     void shouldEqualTwoPointFive() {
         assertEquals(2.5, handler.calculateValueOfOneUnit(6, 15.0));
+    }
+
+    // Testing of division works for odd inputs
+
+    @Test
+    void shouldEqualFourPointThreeFive() {
+        assertEquals(4.35, handler.calculateValueOfOneUnit(4, 17.4));
     }
 
 }
