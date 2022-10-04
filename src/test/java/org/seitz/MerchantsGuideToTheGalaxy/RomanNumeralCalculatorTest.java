@@ -241,6 +241,13 @@ class RomanNumeralCalculatorTest {
         assertEquals(1666, calculator.getNumeralValue("MDCLXVI"));
     }
 
+    // Testing if subtraction works at the beginning and the end of a numeral, for numerals of even length
+
+    @Test
+    void shouldEqualFour() throws IllegalArgumentException {
+        assertEquals(4, calculator.getNumeralValue("IV"));
+    }
+
 
     //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
 
