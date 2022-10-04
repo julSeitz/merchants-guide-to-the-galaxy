@@ -2,6 +2,7 @@ package org.seitz.MerchantsGuideToTheGalaxy;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.Arrays;
@@ -41,6 +42,16 @@ class RomanNumeralCalculatorTest {
         return inputNumerals.stream().map(
                 numeral -> DynamicTest.dynamicTest(numeral + " can be repeated 3 times",
                         () -> assertTrue(secondCalculator.isValidNumeral(numeral.repeat(3)))));
+    }
+
+    /*
+        Testing if "I", "X", "C" or "M" can be repeated a fourth time, if the fourth occurrence is preceded by a smaller
+        value
+     */
+
+    @Test
+    void shouldBeValidToRepeatXFourTimesWithSubtraction() {
+        assertTrue(calculator.isValidNumeral("XXXIX"));
     }
 
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
