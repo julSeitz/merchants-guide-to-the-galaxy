@@ -153,5 +153,10 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    @Test
+    void shouldNotBeAbleToSubtractD() {
+        assertFalse(calculator.isValidNumeral("DM"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
