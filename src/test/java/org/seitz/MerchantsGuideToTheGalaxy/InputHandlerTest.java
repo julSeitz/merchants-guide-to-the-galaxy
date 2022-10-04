@@ -140,6 +140,17 @@ class InputHandlerTest {
                 ));
     }
 
+    @TestFactory
+    Stream<DynamicTest> wordsShouldNotBeRecognized() {
+        InputHandler secondHandler = new InputHandler();
+        List<String> inputs = Arrays.asList("glek", "6578", "Silver", "X");
+
+        return inputs.stream().map(
+                input -> DynamicTest.dynamicTest("Checking if " + input + " is a reserved word",
+                        () -> assertFalse(secondHandler.isInputKeyWord(input))
+                ));
+    }
+
 
 
 }
