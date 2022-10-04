@@ -260,6 +260,11 @@ class RomanNumeralCalculatorTest {
         assertEquals(14, calculator.getNumeralValue("IXV"));
     }
 
+    @Test
+    void shouldEqualNineteen() throws IllegalArgumentException {
+        assertEquals(19, calculator.getNumeralValue("XIX"));
+    }
+
 
     //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
 
