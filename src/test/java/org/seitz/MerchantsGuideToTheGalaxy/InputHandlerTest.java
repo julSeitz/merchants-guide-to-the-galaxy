@@ -1,7 +1,13 @@
 package org.seitz.MerchantsGuideToTheGalaxy;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestFactory;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -118,5 +124,22 @@ class InputHandlerTest {
         handler.addMineralValue("Silver", 29.38);
         assertEquals(675.74, handler.getValueOfXUnits(23, "Silver"));
     }
+
+    //-------------------------------END OF TESTS FOR getValueOfXUnits()------------------------------------------------
+
+    //-------------------------------START OF TESTS FOR isInputKeyWord()------------------------------------------------
+
+    @TestFactory
+    Stream<DynamicTest> keywordsShouldBeRecognized() {
+        InputHandler secondHandler = new InputHandler();
+        List<String> inputs = Arrays.asList("how", "many", "much", "is", "Credits");
+
+        return inputs.stream().map(
+                input -> DynamicTest.dynamicTest("Checking if " + input + " is a reserved word",
+                        () -> assertTrue(secondHandler.isInputKeyWord(input))
+                ));
+    }
+
+
 
 }
