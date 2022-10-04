@@ -106,8 +106,11 @@ public class RomanNumeralCalculator {
      * @param numeral   roman numeral
      * @return          the value of the given roman numeral as an arabic decimal numeral
      */
-    public int getNumeralValue(String numeral) {
-        // TODO: implement
-        return 0;
+    public int getNumeralValue(String numeral) throws IllegalArgumentException {
+
+        if (!this.isValidNumeral(numeral)) {
+            throw new IllegalArgumentException("Invalid numeral");
+        }
+        return this.calculateValue(numeral);
     }
 }
