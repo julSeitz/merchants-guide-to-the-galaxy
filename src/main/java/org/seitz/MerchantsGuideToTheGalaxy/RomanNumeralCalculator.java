@@ -1,6 +1,8 @@
 package org.seitz.MerchantsGuideToTheGalaxy;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -94,8 +96,27 @@ public class RomanNumeralCalculator {
      * @return          the value of the given roman numeral as an arabic decimal numeral
      */
     private int calculateValue(String numeral) {
-        // TODO: implement
-        return 0;
+        int value = 0;
+        String[] parts = numeral.split("");
+        Integer[] numbers = new Integer[numeral.length()];
+        for (int i=0; i < parts.length; i++) {
+            numbers[i] = this.romanNumerals.get(parts[i]);
+        }
+        List<Integer> evaluatedNumbers = new ArrayList<>();
+        for (int i = 0; i < numbers.length; i++) {
+            if (i >= numbers.length - 1) {
+                evaluatedNumbers.add(numbers[numbers.length - 1]);
+            } else if (numbers[i] >= numbers[i+1]) {
+                evaluatedNumbers.add(numbers[i]);
+            } else {
+                evaluatedNumbers.add(numbers[i+1] - numbers[i]);
+                i++;
+            }
+        }
+        for (Integer number : evaluatedNumbers) {
+            value += number;
+        }
+        return value;
     }
 
     /**
