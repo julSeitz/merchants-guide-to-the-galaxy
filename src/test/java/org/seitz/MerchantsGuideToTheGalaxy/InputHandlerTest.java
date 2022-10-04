@@ -14,7 +14,7 @@ class InputHandlerTest {
         handler = new InputHandler();
     }
 
-    //--START OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral AND updateIntergalacticNumeral()
+    //--START OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
 
     @Test
     void shouldBeAbleToStoreAndRetrieve() {
@@ -35,7 +35,7 @@ class InputHandlerTest {
                 () -> handler.updateIntergalacticNumeral("gek", "IX"));
     }
 
-    //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral AND updateIntergalacticNumeral()
+    //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
 
     //-----------------------------------START OF TESTS FOR isNumeralKnown()--------------------------------------------
 
@@ -49,4 +49,8 @@ class InputHandlerTest {
         handler.addIntergalacticNumeral("gek", "IV");
         assertTrue(handler.isNumeralKnown("gek"));
     }
+
+    //-------------------------------------END OF TESTS FOR isNumeralKnown()--------------------------------------------
+
+    //--START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()
 }
