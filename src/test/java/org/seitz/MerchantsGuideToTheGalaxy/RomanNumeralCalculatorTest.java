@@ -81,5 +81,19 @@ class RomanNumeralCalculatorTest {
         assertFalse(calculator.isValidNumeral("VIV"));
     }
 
+    // Testing if "I" can only be subtracted from "X" and "V"
+
+    @TestFactory
+    Stream<DynamicTest> shouldNotBeAbleToSubtractIFromAnythingButXAndV() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputNumerals = Arrays.asList("L", "C", "D", "M");
+        String subtractor = "I";
+
+        return inputNumerals.stream().map(
+                numeral -> DynamicTest.dynamicTest(subtractor + " can not be subtracted from " + numeral,
+                        () -> assertFalse(secondCalculator.isValidNumeral(subtractor + numeral))
+                ));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
