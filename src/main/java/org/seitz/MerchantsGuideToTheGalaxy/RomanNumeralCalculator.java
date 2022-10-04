@@ -2,6 +2,8 @@ package org.seitz.MerchantsGuideToTheGalaxy;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class provides tools to check if a roman numeral is valid and to calculate it's value
@@ -35,8 +37,19 @@ public class RomanNumeralCalculator {
      * @return          answer if the given numeral is valid
      */
     public boolean isValidNumeral(String numeral) {
+
+        // check for illegal characters
+
+        Pattern pattern = Pattern.compile("[^IVXLCDM]");
+        Matcher matcher = pattern.matcher(numeral);
+        boolean matchFound = matcher.find();
+
+        if (matchFound) {
+            return false;
+        }
+
         // TODO: implement
-        return false;
+        return true;
     }
 
     /**
