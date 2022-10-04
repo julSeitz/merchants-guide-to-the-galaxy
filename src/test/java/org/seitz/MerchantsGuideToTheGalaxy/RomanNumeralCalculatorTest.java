@@ -118,13 +118,13 @@ class RomanNumeralCalculatorTest {
     }
 
     @Test
-    void shouldNotBeAbleToSubtractXFromL() {
-        assertFalse(calculator.isValidNumeral("XL"));
+    void shouldBeAbleToSubtractXFromL() {
+        assertTrue(calculator.isValidNumeral("XL"));
     }
 
     @Test
-    void shouldNotBeAbleToSubtractXFromC() {
-        assertFalse(calculator.isValidNumeral("XC"));
+    void shouldBeAbleToSubtractXFromC() {
+        assertTrue(calculator.isValidNumeral("XC"));
     }
 
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
