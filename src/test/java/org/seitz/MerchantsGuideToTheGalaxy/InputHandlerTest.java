@@ -49,21 +49,6 @@ class InputHandlerTest {
 
     //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
 
-    //-----------------------------------START OF TESTS FOR isNumeralKnown()--------------------------------------------
-
-    @Test
-    void numeralShouldNotBeKnown() {
-        assertFalse(handler.isNumeralKnown("gek"));
-    }
-
-    @Test
-    void numeralShouldBeKnown() {
-        handler.addIntergalacticNumeral("gek", "IV");
-        assertTrue(handler.isNumeralKnown("gek"));
-    }
-
-    //-------------------------------------END OF TESTS FOR isNumeralKnown()--------------------------------------------
-
     //--------------------START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
 
     @Test

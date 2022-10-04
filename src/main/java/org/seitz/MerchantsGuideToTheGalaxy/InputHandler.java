@@ -43,16 +43,6 @@ public class InputHandler {
     }
 
     /**
-     * Returns boolean, answering if given numeral already has corresponding roman numeral
-     *
-     * @param numeral   the given intergalactic numeral
-     * @return          answer if numeral is known
-     */
-    public boolean isNumeralKnown(String numeral) {
-        return this.intergalacticRomanDictionary.containsKey(numeral);
-    }
-
-    /**
      * Updates the corresponding roman numeral, of a known intergalactic numeral
      *
      * @param intergalacticNumeral  the intergalactic numeral given
