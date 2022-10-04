@@ -39,7 +39,7 @@ public class InputHandler {
      * @param romanNumeral          the corresponding roman numeral
      */
     public void addIntergalacticNumeral(String intergalacticNumeral, String romanNumeral) {
-
+        this.intergalacticRomanDictionary.put(intergalacticNumeral, romanNumeral);
     }
 
     /**
