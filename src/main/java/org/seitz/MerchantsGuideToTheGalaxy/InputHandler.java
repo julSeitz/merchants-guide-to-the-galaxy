@@ -72,7 +72,7 @@ public class InputHandler {
      * @param value     the Credit value of one unit
      */
     public void addMineralValue(String mineral, Double value) {
-
+        this.mineralValueList.put(mineral, value);
     }
 
 
