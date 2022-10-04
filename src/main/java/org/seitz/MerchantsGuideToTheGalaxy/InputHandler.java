@@ -112,7 +112,7 @@ public class InputHandler {
      * @return                      value of one unit
      */
     public double calculateValueOfOneUnit(int givenAmount, Double valueOfGivenAmount) {
-        return 0;
+        return valueOfGivenAmount / givenAmount;
     }
 
     /**
