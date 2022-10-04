@@ -54,5 +54,10 @@ class RomanNumeralCalculatorTest {
         assertTrue(calculator.isValidNumeral("XXXIX"));
     }
 
+    @Test
+    void shouldBeValidToRepeatCFourTimesWithSubtraction() {
+        assertTrue(calculator.isValidNumeral("CCCXC"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
