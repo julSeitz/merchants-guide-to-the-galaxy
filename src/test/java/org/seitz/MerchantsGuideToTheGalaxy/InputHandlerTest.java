@@ -83,4 +83,14 @@ class InputHandlerTest {
         handler.addMineralValue("Silver", 98.2);
         assertTrue(handler.isMineralKnown("Silver"));
     }
+
+    //----------------------END OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
+
+    //-------------------------------START OF TESTS FOR calculateValueOfOneUnit()---------------------------------------
+
+    @Test
+    void shouldEqualFive() {
+        assertEquals(5.0, handler.calculateValueOfOneUnit(20, 100.0));
+    }
+
 }
