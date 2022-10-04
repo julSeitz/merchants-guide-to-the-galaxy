@@ -11,6 +11,11 @@ import java.util.Map;
 public class InputHandler {
 
     /**
+     * Calculator to handle roman numerals
+     */
+    private RomanNumeralCalculator calculator;
+
+    /**
      * A dictionary to save the corresponding roman numeral to an intergalactic numeral
      */
     private Map<String, String> intergalacticRomanDictionary = new HashMap<>();
