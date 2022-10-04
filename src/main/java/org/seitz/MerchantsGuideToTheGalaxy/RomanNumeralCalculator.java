@@ -68,6 +68,16 @@ public class RomanNumeralCalculator {
             return false;
         }
 
+        // check if "D", "L" and "V" can never be repeated
+
+        pattern = Pattern.compile("[D]+.*[D]+|[L]+.*[L]+|[V]+.*[V]+");
+        matcher = pattern.matcher(numeral);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return false;
+        }
+
         // TODO: implement
         return true;
     }
