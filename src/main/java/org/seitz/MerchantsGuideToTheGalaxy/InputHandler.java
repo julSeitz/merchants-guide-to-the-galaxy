@@ -141,7 +141,10 @@ public class InputHandler {
      * @param mineralName   the name of the given mineral
      * @return              the value of one unit of the given mineral
      */
-    public double getMineralValue(String mineralName) {
+    public double getMineralValue(String mineralName) throws Exception {
+        if (!this.mineralValueList.containsKey(mineralName)) {
+            throw new Exception("Mineral " + mineralName + " is unknown");
+        }
         return this.mineralValueList.get(mineralName);
     }
 
