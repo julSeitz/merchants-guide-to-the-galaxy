@@ -93,4 +93,9 @@ class InputHandlerTest {
         assertEquals(5.0, handler.calculateValueOfOneUnit(20, 100.0));
     }
 
+    @Test
+    void shouldEqualTwoPointFive() {
+        assertEquals(2.5, handler.calculateValueOfOneUnit(6, 15.0));
+    }
+
 }
