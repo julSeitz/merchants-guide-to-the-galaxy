@@ -80,6 +80,12 @@ class InputHandlerTest {
     }
 
     @Test
+    void shouldThrowExceptionWhenUnknownMineralIsRequested() throws Exception {
+        assertThrows(Exception.class,
+                () -> handler.getMineralValue("Silver"));
+    }
+
+    @Test
     void shouldThrowExceptionWhenUnknownMineralIsUpdated() throws Exception {
         assertThrows(Exception.class,
                 () -> handler.updateMineralValue("Silver", 87.4));
