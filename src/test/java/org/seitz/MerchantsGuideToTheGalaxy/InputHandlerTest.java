@@ -85,6 +85,10 @@ class InputHandlerTest {
                 () -> handler.updateMineralValue("Silver", 87.4));
     }
 
+    //----------------------END OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
+
+    //-----------------------------------START OF TESTS FOR isMineralKnown()--------------------------------------------
+
     @Test
     void mineralShouldNotBeKnown() {
         assertFalse(handler.isMineralKnown("Silver"));
@@ -96,7 +100,7 @@ class InputHandlerTest {
         assertTrue(handler.isMineralKnown("Silver"));
     }
 
-    //----------------------END OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
+    //-----------------------------------END OF TESTS FOR isMineralKnown()----------------------------------------------
 
     //-------------------------------START OF TESTS FOR calculateValueOfOneUnit()---------------------------------------
 
