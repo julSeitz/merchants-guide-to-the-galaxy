@@ -39,7 +39,7 @@ class RomanNumeralCalculatorTest {
         List<String> inputNumerals = Arrays.asList("I", "X", "C", "M");
 
         return inputNumerals.stream().map(
-                numeral -> DynamicTest.dynamicTest(numeral + " can not be repeated 4 times",
+                numeral -> DynamicTest.dynamicTest(numeral + " can be repeated 3 times",
                         () -> assertTrue(secondCalculator.isValidNumeral(numeral.repeat(3)))));
     }
 
