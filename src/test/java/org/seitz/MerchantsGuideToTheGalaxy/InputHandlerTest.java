@@ -59,4 +59,11 @@ class InputHandlerTest {
         handler.addMineralValue("Silver", 82.1);
         assertEquals(82.1, handler.getMineralValue("Silver"));
     }
+
+    @Test
+    void shouldBeAbleToUpdateAndRetrieveMineral() throws Exception {
+        handler.addMineralValue("Silver", 82.1);
+        handler.updateMineralValue("Silver", 79.3);
+        assertEquals(79.3, handler.getMineralValue("Silver"));
+    }
 }
