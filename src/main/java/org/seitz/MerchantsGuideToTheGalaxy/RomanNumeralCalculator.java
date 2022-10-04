@@ -58,6 +58,16 @@ public class RomanNumeralCalculator {
             return false;
         }
 
+        // check for subtraction restrictions ("I" can only be subtracted from "V" and "X", etc.)
+
+        pattern = Pattern.compile("[I]+[MDCL]|[X]+[MD]|[V]+[XLCDM]|[L]+[CDM]|[D]+[M]");
+        matcher = pattern.matcher(numeral);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return false;
+        }
+
         // TODO: implement
         return true;
     }
