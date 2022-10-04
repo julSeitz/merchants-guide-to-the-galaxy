@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class provides tools to evaluate and save user input regarding minerals and intergalactic numerals
@@ -135,7 +137,11 @@ public class InputHandler {
      * @return      answer if collision with keyword
      */
     public boolean isInputKeyWord(String input) {
-        return false;
+
+        Pattern pattern = Pattern.compile("how|many|much|Credits|is");
+        Matcher matcher = pattern.matcher(input);
+
+        return matcher.find();
     }
 
     /**
