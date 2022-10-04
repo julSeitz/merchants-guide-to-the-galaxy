@@ -120,9 +120,15 @@ class InputHandlerTest {
     //-------------------------------START OF TESTS FOR getValueOfXUnits()----------------------------------------------
 
     @Test
-    void shouldEqualSixHundredSeventyFivePointSevenFour() {
+    void shouldEqualSixHundredSeventyFivePointSevenFour() throws Exception {
         handler.addMineralValue("Silver", 29.38);
         assertEquals(675.74, handler.getValueOfXUnits(23, "Silver"));
+    }
+
+    @Test
+    void shouldThrowExceptionForUnknownMineral() throws Exception {
+        assertThrows(Exception.class,
+                () -> handler.getValueOfXUnits(23, "Silver"));
     }
 
     //-------------------------------END OF TESTS FOR getValueOfXUnits()------------------------------------------------
