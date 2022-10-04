@@ -58,8 +58,11 @@ public class InputHandler {
      * @param intergalacticNumeral  the intergalactic numeral given
      * @param romanNumeral          the new corresponding roman numeral
      */
-    public void updateIntergalacticNumeral(String intergalacticNumeral, String romanNumeral) {
-
+    public void updateIntergalacticNumeral(String intergalacticNumeral, String romanNumeral) throws Exception {
+        if (!this.intergalacticRomanDictionary.containsKey(intergalacticNumeral)) {
+            throw new Exception("Numeral not known");
+        }
+        this.intergalacticRomanDictionary.put(intergalacticNumeral, romanNumeral);
     }
 
     /**
