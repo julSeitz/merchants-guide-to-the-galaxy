@@ -40,12 +40,12 @@ class InputHandlerTest {
     //-----------------------------------START OF TESTS FOR isNumeralKnown()--------------------------------------------
 
     @Test
-    void shouldNotBeKnown() {
+    void numeralShouldNotBeKnown() {
         assertFalse(handler.isNumeralKnown("gek"));
     }
 
     @Test
-    void shouldBeKnown() {
+    void numeralShouldBeKnown() {
         handler.addIntergalacticNumeral("gek", "IV");
         assertTrue(handler.isNumeralKnown("gek"));
     }
@@ -71,5 +71,10 @@ class InputHandlerTest {
     void shouldThrowExceptionWhenUnknownMineralIsUpdated() throws Exception {
         assertThrows(Exception.class,
                 () -> handler.updateMineralValue("Silver", 87.4));
+    }
+
+    @Test
+    void mineralShouldNotBeKnown() {
+        assertFalse(handler.isMineralKnown("Silver"));
     }
 }
