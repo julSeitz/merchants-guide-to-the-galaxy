@@ -93,21 +93,6 @@ class InputHandlerTest {
 
     //----------------------END OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
 
-    //-----------------------------------START OF TESTS FOR isMineralKnown()--------------------------------------------
-
-    @Test
-    void mineralShouldNotBeKnown() {
-        assertFalse(handler.isMineralKnown("Silver"));
-    }
-
-    @Test
-    void mineralShouldBeKnown() {
-        handler.addMineralValue("Silver", 98.2);
-        assertTrue(handler.isMineralKnown("Silver"));
-    }
-
-    //-----------------------------------END OF TESTS FOR isMineralKnown()----------------------------------------------
-
     //-------------------------------START OF TESTS FOR calculateValueOfOneUnit()---------------------------------------
 
     // Testing if division works for even results

@@ -90,16 +90,6 @@ public class InputHandler {
     }
 
     /**
-     * Returns boolean, answering if given mineral already has a corresponding Credit value
-     *
-     * @param mineral   the given mineral name
-     * @return          answer if mineral already has a corresponding Credit value
-     */
-    public boolean isMineralKnown(String mineral) {
-        return this.mineralValueList.containsKey(mineral);
-    }
-
-    /**
      * Returns the equivalent roman numeral, to a given intergalactic numeral
      *
      * @param intergalacticNumeral  the intergalactic numeral given
