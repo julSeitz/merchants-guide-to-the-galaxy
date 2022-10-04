@@ -30,9 +30,7 @@ class RomanNumeralCalculatorTest {
 
         return inputNumerals.stream().map(
                 numeral -> DynamicTest.dynamicTest(numeral + " can not be repeated 4 times",
-                        () -> {
-                            assertFalse(secondCalculator.isValidNumeral(numeral.repeat(4)));
-                        }));
+                        () -> assertFalse(secondCalculator.isValidNumeral(numeral.repeat(4)))));
     }
 
     @TestFactory
