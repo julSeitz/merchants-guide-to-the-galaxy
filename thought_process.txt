@@ -5,6 +5,7 @@ Thought process:
     with roman numerals -> There needs to be a class dedicated to handling roman numerals.
 
     After implementing tests for isValidNumeral(), implementing the method itself with regex(regex101.com)
+    After implementing tests for getNumeralValue(), implementing the method itself.
 
 Assumptions:
     1. The program should be able to process any 'intergalactic numeral' given.
