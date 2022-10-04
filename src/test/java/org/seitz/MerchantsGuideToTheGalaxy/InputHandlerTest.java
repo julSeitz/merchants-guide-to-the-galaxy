@@ -35,4 +35,14 @@ class InputHandlerTest {
                 () -> handler.updateIntergalacticNumeral("gek", "IX"));
     }
 
+    //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral AND updateIntergalacticNumeral()
+
+    //-----------------------------------START OF TESTS FOR isNumeralKnown()--------------------------------------------
+
+    @Test
+    void shouldNotBeKnown() {
+        assertFalse(handler.isNumeralKnown("gek"));
+    }
+
+
 }
