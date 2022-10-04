@@ -64,5 +64,12 @@ class RomanNumeralCalculatorTest {
         assertTrue(calculator.isValidNumeral("MMMCM"));
     }
 
+    // Testing if "D", "L" and "V" can not be repeated
+
+    @Test
+    void shouldNotBeAbleToRepeatD() {
+        assertFalse(calculator.isValidNumeral("DCD"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
