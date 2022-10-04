@@ -234,6 +234,13 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    // Testing if addition works correctly
+
+    @Test
+    void shouldEqualOnethousandsixhundredsixtysix() throws Exception {
+        assertEquals(1666, calculator.getNumeralValue("MDCLXVI"));
+    }
+
 
     //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
 
