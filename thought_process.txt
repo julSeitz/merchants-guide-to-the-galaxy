@@ -1,0 +1,13 @@
+This file documents my thought process and assumptions while working on this project:
+
+Thought process:
+    Translating intergalactic numerals to roman numerals should be separated from the logic of mathematical operations
+    with roman numerals -> There needs to be a class dedicated to handling roman numerals.
+
+Assumptions:
+    1. The program should be able to process any 'intergalactic numeral' given.
+        1.1 These numerals consist of a single string of lower case letters.
+    2. The program should be able to process any mineral given.
+        2.1 Minerals have the format of a single string of letters, he first upper case, the rest lower case.
+    3. Neither the minerals, nor the numerals are allowed to be keywords used in input processing.
+        These keywords are:
