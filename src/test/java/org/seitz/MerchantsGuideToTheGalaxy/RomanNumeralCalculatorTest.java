@@ -141,5 +141,17 @@ class RomanNumeralCalculatorTest {
                 ));
     }
 
+    @TestFactory
+    Stream<DynamicTest> shouldNotBeAbleToSubtractL() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputNumerals = Arrays.asList("C", "D", "M");
+        String subtractor = "L";
+
+        return inputNumerals.stream().map(
+                numeral -> DynamicTest.dynamicTest(subtractor + " can not be subtracted from " + numeral,
+                        () -> assertFalse(secondCalculator.isValidNumeral(subtractor + numeral))
+                ));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
