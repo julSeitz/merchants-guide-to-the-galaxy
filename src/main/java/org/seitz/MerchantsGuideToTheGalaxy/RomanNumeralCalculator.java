@@ -78,8 +78,13 @@ public class RomanNumeralCalculator {
             return false;
         }
 
-        // TODO: implement
-        return true;
+        // check for only allowing one subtraction per symbol
+
+        pattern = Pattern.compile("[I]{2,}[MCDLXV]+|[IV]{2,}[MDLCX]+|[IVX]{2,}[MDLC]+|[IVXL]{2,}[MDC]+|[IVXLC]{2,}[MD]+|[IVXLCD]{2,}[M]+");
+        matcher = pattern.matcher(numeral);
+        matchFound = matcher.find();
+
+        return !matchFound;
     }
 
     /**
