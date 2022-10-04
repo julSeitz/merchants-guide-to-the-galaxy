@@ -14,11 +14,18 @@ class InputHandlerTest {
         handler = new InputHandler();
     }
 
-    //-------------START OF TESTS FOR addIntergalacticNumeral() AND getRomanNumeralFromIntergalacticNumeral-------------
+    //--START OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral AND updateIntergalacticNumeral()
 
     @Test
     void shouldBeAbleToStoreAndRetrieve() {
         handler.addIntergalacticNumeral("gek", "IV");
         assertEquals("IV", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
+    }
+
+    @Test
+    void shouldBeAbleToUpdateAndRetrieve() {
+        handler.addIntergalacticNumeral("gek", "IX");
+        handler.updateIntergalacticNumeral("gek", "IX");
+        assertEquals("IX", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
     }
 }
