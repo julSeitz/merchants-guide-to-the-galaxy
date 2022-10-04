@@ -67,7 +67,7 @@ class InputHandlerTest {
     //--------------------START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
 
     @Test
-    void shouldBeAbleToStoreAndRetrieveMineral() {
+    void shouldBeAbleToStoreAndRetrieveMineral() throws Exception{
         handler.addMineralValue("Silver", 82.1);
         assertEquals(82.1, handler.getMineralValue("Silver"));
     }
