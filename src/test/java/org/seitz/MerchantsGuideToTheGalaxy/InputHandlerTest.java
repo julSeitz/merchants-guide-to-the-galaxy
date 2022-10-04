@@ -44,5 +44,9 @@ class InputHandlerTest {
         assertFalse(handler.isNumeralKnown("gek"));
     }
 
-
+    @Test
+    void shouldBeKnown() {
+        handler.addIntergalacticNumeral("gek", "IV");
+        assertTrue(handler.isNumeralKnown("gek"));
+    }
 }
