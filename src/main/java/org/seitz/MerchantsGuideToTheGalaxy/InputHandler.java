@@ -60,7 +60,7 @@ public class InputHandler {
      */
     public void updateIntergalacticNumeral(String intergalacticNumeral, String romanNumeral) throws Exception {
         if (!this.intergalacticRomanDictionary.containsKey(intergalacticNumeral)) {
-            throw new Exception("Numeral not known");
+            throw new Exception("Numeral " + intergalacticNumeral + " not known");
         }
         this.intergalacticRomanDictionary.put(intergalacticNumeral, romanNumeral);
     }
