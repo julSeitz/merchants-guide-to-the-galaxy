@@ -105,5 +105,12 @@ class RomanNumeralCalculatorTest {
         assertTrue(calculator.isValidNumeral("IV"));
     }
 
+    // Testing if "X" can only be subtracted from "L" and "C"
+
+    @Test
+    void shouldNotBeAbleToSubtractXFromD() {
+        assertFalse(calculator.isValidNumeral("XD"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
