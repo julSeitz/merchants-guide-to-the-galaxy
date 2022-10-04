@@ -217,4 +217,25 @@ class RomanNumeralCalculatorTest {
     }
 
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
+
+    //----------------------------------START OF TESTS FOR getNumeralValue()--------------------------------------------
+
+    // Testing if each numeral is implemented correctly
+
+    @TestFactory
+    Stream<DynamicTest> isEachSymbolCorrect() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputNumerals = Arrays.asList("I", "V", "X", "L", "C", "D", "M");
+        List<Integer> outputNumbers = Arrays.asList(1, 5, 10, 50, 100, 500, 1000);
+
+        return inputNumerals.stream().map(
+                numeral -> DynamicTest.dynamicTest(numeral + " equals " + outputNumbers.get(inputNumerals.indexOf(numeral)),
+                        () -> assertEquals(outputNumbers.get(inputNumerals.indexOf(numeral)), secondCalculator.getNumeralValue(numeral))
+                ));
+    }
+
+
+    //-----------------------------------END OF TESTS FOR getNumeralValue()----------------------------------------------
+
+
 }
