@@ -4,6 +4,8 @@ Thought process:
     Translating intergalactic numerals to roman numerals should be separated from the logic of mathematical operations
     with roman numerals -> There needs to be a class dedicated to handling roman numerals.
 
+    After implementing tests for isValidNumeral(), implementing the method itself with regex(regex101.com)
+
 Assumptions:
     1. The program should be able to process any 'intergalactic numeral' given.
         1.1 These numerals consist of a single string of lower case letters.
