@@ -100,8 +100,8 @@ public class InputHandler {
      * @param mineralName   the name of the mineral
      * @return              the value of x units of the given mineral
      */
-    public double getValueOfXUnits(int x, String mineralName) {
-        return 0;
+    public double getValueOfXUnits(int x, String mineralName) throws Exception{
+        return x * this.getMineralValue(mineralName);
     }
 
     /**
