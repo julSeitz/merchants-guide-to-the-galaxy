@@ -35,5 +35,15 @@ class RomanNumeralCalculatorTest {
                         }));
     }
 
+    @TestFactory
+    Stream<DynamicTest> shouldBeAbleToRepeatSymbolThreeTimes() {
+        RomanNumeralCalculator secondCalculator = new RomanNumeralCalculator();
+        List<String> inputNumerals = Arrays.asList("I", "X", "C", "M");
+
+        return inputNumerals.stream().map(
+                numeral -> DynamicTest.dynamicTest(numeral + " can not be repeated 4 times",
+                        () -> assertTrue(secondCalculator.isValidNumeral(numeral.repeat(3)))));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
