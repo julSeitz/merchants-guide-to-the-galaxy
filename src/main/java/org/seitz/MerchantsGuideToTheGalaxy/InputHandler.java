@@ -49,7 +49,7 @@ public class InputHandler {
      * @return          answer if numeral is known
      */
     public boolean isNumeralKnown(String numeral) {
-        return false;
+        return this.intergalacticRomanDictionary.containsKey(numeral);
     }
 
     /**
