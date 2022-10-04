@@ -158,5 +158,12 @@ class RomanNumeralCalculatorTest {
         assertFalse(calculator.isValidNumeral("DM"));
     }
 
+    // Testing if only one small-value symbol can be subtracted from any large-value symbol
+
+    @Test
+    void shouldNotBeAbleToDoMultipleSubtractions() {
+        assertFalse(calculator.isValidNumeral("IIX"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
