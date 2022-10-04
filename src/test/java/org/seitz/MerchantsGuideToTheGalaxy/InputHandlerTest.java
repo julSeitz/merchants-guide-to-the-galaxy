@@ -23,7 +23,7 @@ class InputHandlerTest {
     }
 
     @Test
-    void shouldBeAbleToUpdateAndRetrieve() {
+    void shouldBeAbleToUpdateAndRetrieve() throws Exception {
         handler.addIntergalacticNumeral("gek", "IX");
         handler.updateIntergalacticNumeral("gek", "IX");
         assertEquals("IX", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
