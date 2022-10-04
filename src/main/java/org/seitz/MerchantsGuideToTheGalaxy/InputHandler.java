@@ -82,8 +82,11 @@ public class InputHandler {
      * @param mineral   the given mineral
      * @param value     the given Credit value of one unit
      */
-    public void updateMineralValue(String mineral, Double value) {
-
+    public void updateMineralValue(String mineral, Double value) throws Exception{
+        if (!this.mineralValueList.containsKey(mineral)) {
+            throw new Exception("Mineral " + mineral + " not known");
+        }
+        this.mineralValueList.put(mineral, value);
     }
 
     /**
