@@ -13,4 +13,4 @@ Assumptions:
     2. The program should be able to process any mineral given.
         2.1 Minerals have the format of a single string of letters, he first upper case, the rest lower case.
     3. Neither the minerals, nor the numerals are allowed to be keywords used in input processing.
-        These keywords are:
+        These keywords are: "how", "many", "much", "Credits", "is"
