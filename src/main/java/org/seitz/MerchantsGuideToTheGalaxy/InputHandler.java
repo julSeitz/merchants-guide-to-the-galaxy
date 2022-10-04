@@ -72,15 +72,6 @@ public class InputHandler {
 
     }
 
-    /**
-     * Returns a boolean, answering if the given mineral has a valid name
-     *
-     * @param mineral   the mineral name given
-     * @return          answer if the name is valid
-     */
-    public boolean isValidMineral(String mineral) {
-        return false;
-    }
 
     /**
      * Updates the Credit value of one unit of a given mineral
