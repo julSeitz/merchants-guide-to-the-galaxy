@@ -100,7 +100,7 @@ public class InputHandler {
      * @return                      the equivalent roman numeral
      */
     public String getRomanNumeralFromIntergalacticNumeral(String intergalacticNumeral) {
-        return "";
+        return this.intergalacticRomanDictionary.get(intergalacticNumeral);
     }
 
     /**
