@@ -71,5 +71,10 @@ class RomanNumeralCalculatorTest {
         assertFalse(calculator.isValidNumeral("DCD"));
     }
 
+    @Test
+    void shouldNotBeAbleToRepeatL() {
+        assertFalse(calculator.isValidNumeral("LL"));
+    }
+
     //-----------------------------------END OF TESTS FOR isValidNumeral()----------------------------------------------
 }
