@@ -16,6 +16,13 @@ public class InputHandler {
     private RomanNumeralCalculator calculator;
 
     /**
+     * Constructor which creates new internal calculator for roman numerals
+     */
+    public InputHandler() {
+        this.calculator = new RomanNumeralCalculator();
+    }
+
+    /**
      * A dictionary to save the corresponding roman numeral to an intergalactic numeral
      */
     private Map<String, String> intergalacticRomanDictionary = new HashMap<>();
