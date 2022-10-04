@@ -52,5 +52,5 @@ class InputHandlerTest {
 
     //-------------------------------------END OF TESTS FOR isNumeralKnown()--------------------------------------------
 
-    //--START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()
+    //--------------------START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
 }
