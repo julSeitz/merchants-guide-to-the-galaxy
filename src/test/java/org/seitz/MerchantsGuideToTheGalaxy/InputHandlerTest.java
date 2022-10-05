@@ -257,6 +257,13 @@ class InputHandlerTest {
                 ));
     }
 
+    @Test
+    void shouldExtractQueryDataForTypeThreeCorrectly() {
+        assertEquals("pish tegj glob glob",
+                handler.extractDataFromQuery("how much is pish tegj glob glob ?", "3").get(0)
+        );
+    }
+
 
 
 }
