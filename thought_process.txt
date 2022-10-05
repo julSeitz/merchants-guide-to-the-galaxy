@@ -6,6 +6,8 @@ Thought process:
 
     After implementing tests for isValidNumeral(), implementing the method itself with regex(regex101.com)
     After implementing tests for getNumeralValue(), implementing the method itself.
+    Designing and implementing tests for methods in InputHandler, implementing methods afterwards.
+    Redesigning methods in InputHandler, as demands deviate from original estimate during development.
 
 Assumptions:
     1. The program should be able to process any 'intergalactic numeral' given.
