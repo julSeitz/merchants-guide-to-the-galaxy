@@ -172,6 +172,14 @@ public class InputHandler {
             return "2";
         }
 
+        pattern = Pattern.compile("^how much is (?:[a-z]+ )+\\?$");
+        matcher = pattern.matcher(inputQuery);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return "3";
+        }
+
 
 
         return "";
