@@ -188,9 +188,7 @@ public class InputHandler {
             return "4";
         }
 
-
-
-        return "";
+        return "0";
     }
 
     /**
