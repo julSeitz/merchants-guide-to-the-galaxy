@@ -146,6 +146,11 @@ public class InputHandler {
 
     /**
      * Returns type of user query
+     * type "1": sets numeral
+     * type "2": sets mineral credit value
+     * type "3": asks for numeral value
+     * type "4": asks for mineral price
+     * type "0": invalid query
      *
      * @param inputQuery    user input
      * @return              the type if the user input
