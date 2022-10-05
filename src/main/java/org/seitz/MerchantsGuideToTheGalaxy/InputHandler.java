@@ -164,6 +164,14 @@ public class InputHandler {
             return "1";
         }
 
+        pattern = Pattern.compile("^(?:[a-z]+ )+[A-Z][a-z]+ is [1-9]\\d* Credits$");
+        matcher = pattern.matcher(inputQuery);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return "2";
+        }
+
 
 
         return "";
