@@ -12,13 +12,13 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InputHandlerTest {
+class InputParserTest {
 
-    InputHandler handler;
+    InputParser handler;
 
     @BeforeEach
     void setUp() {
-        handler = new InputHandler();
+        handler = new InputParser();
     }
 
     //--START OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
@@ -111,7 +111,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> keywordsShouldBeRecognized() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
         List<String> inputs = Arrays.asList("how", "many", "much", "is", "Credits");
 
         return inputs.stream().map(
@@ -122,7 +122,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> wordsShouldNotBeRecognized() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
         List<String> inputs = Arrays.asList("glek", "6578", "Silver", "X", "pish", "howika", "muchani", "umany", "Creditsukal");
 
         return inputs.stream().map(
@@ -135,7 +135,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> shouldDetermineQueryTypeCorrectly() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
         List<String> queries = Arrays.asList(
                 "glob is I",
                 "prok is V",
@@ -177,7 +177,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> shouldExtractQueryDataForTypeOneCorrectly() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
 
         List<String> queries = Arrays.asList(
                 "glob is I",
@@ -213,7 +213,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> shouldExtractQueryDataForTypeTwoCorrectly() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
 
         List<String> queries = Arrays.asList(
                 "glob glob Silver is 34 Credits",
@@ -254,7 +254,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> shouldExtractQueryDataForTypeFourCorrectly() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
 
         List<String> queries = Arrays.asList(
                 "how many Credits is glob prok Silver ?",
@@ -301,7 +301,7 @@ class InputHandlerTest {
 
     @TestFactory
     Stream<DynamicTest> isQueryParsedCorrectly() {
-        InputHandler secondHandler = new InputHandler();
+        InputParser secondHandler = new InputParser();
 
         List<String> inputQueries = Arrays.asList(
                 "glob is I",

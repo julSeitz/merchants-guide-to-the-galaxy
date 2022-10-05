@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 /**
  * This class provides tools to evaluate and save user input regarding minerals and intergalactic numerals
  */
-public class InputHandler {
+public class InputParser {
 
     /**
      * Calculator to handle roman numerals
@@ -17,7 +17,7 @@ public class InputHandler {
     /**
      * Constructor which creates new internal calculator for roman numerals
      */
-    public InputHandler() {
+    public InputParser() {
         this.calculator = new RomanNumeralCalculator();
     }
 
@@ -342,5 +342,4 @@ public class InputHandler {
         }
         return "I have no idea what you are talking about";
     }
-
 }
