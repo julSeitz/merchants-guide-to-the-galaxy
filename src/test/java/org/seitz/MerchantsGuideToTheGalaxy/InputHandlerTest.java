@@ -223,6 +223,40 @@ class InputHandlerTest {
                 ));
     }
 
+    @TestFactory
+    Stream<DynamicTest> shouldExtractQueryDataForTypeTwoCorrectly() {
+        InputHandler secondHandler = new InputHandler();
+
+        List<String> queries = Arrays.asList(
+                "glob glob Silver is 34 Credits",
+                "glob prok Gold is 57800 Credits",
+                "pish pish Iron is 3910 Credits");
+
+        List<List<String>> answers = Arrays.asList(
+                Arrays.asList(
+                        "glob glob",
+                        "Silver",
+                        "34"
+                ),
+                Arrays.asList(
+                        "glob prok",
+                        "Gold",
+                        "57800"
+                ),
+                Arrays.asList(
+                        "pish pish",
+                        "Iron",
+                        "3910"
+                )
+        );
+
+        return queries.stream().map(
+                query -> DynamicTest.dynamicTest("Is data correctly extracted from query " + query,
+                        () -> assertEquals(answers.get(queries.indexOf(query)),
+                                secondHandler.extractDataFromQuery(query, "2"))
+                ));
+    }
+
 
 
 }
