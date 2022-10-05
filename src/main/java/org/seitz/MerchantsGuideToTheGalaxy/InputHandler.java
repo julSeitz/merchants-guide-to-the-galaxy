@@ -156,6 +156,16 @@ public class InputHandler {
      * @return              the type if the user input
      */
     public String determineQueryType(String inputQuery) {
+        Pattern pattern = Pattern.compile("^[a-z]+ is [IVXLCDM]$");
+        Matcher matcher = pattern.matcher(inputQuery);
+        boolean matchFound = matcher.find();
+
+        if (matchFound) {
+            return "1";
+        }
+
+
+
         return "";
     }
 
