@@ -224,7 +224,113 @@ public class InputHandler {
      * @return              answer to query, is "" when answer is required
      */
     public String parseQuery(String queryInput) {
-        return "";
+        String queryType = this.determineQueryType(queryInput);
+        List<String> parameters = this.extractDataFromQuery(queryInput, queryType);
+
+        switch (queryType) {
+            case "1": {
+                String intergalacticNumeral = parameters.get(0);
+                String romanNumeral = parameters.get(1);
+
+                // add new intergalactic numeral to dictionary
+                if (this.isInputKeyWord(intergalacticNumeral)) {
+                    return "I have no idea what you are talking about";
+                }
+                this.addIntergalacticNumeral(intergalacticNumeral, romanNumeral);
+                return "";
+            }
+            case "2": {
+                String mineralName = parameters.get(1);
+
+                // split intergalactic numeral in individual numerals
+                String[] intergalacticNumerals = parameters.get(0).split(" ");
+                StringBuilder romanNumeral = new StringBuilder();
+                for (String numeral : intergalacticNumerals) {
+                    // check if individual numeral is illegal or not known
+                    if (this.isInputKeyWord(numeral)) {
+                        return "I have no idea what you are talking about";
+                    }
+                    try {
+                        // build roman numeral from individual translated intergalactic numeral
+                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
+                    } catch (Exception e) {
+                        return "I have no idea what you are talking about";
+                    }
+                }
+                // get integer value number of units from roman numeral
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+
+                // calculate value of one unit of the mineral
+                double valueOfOneUnitOfMineral = this.calculateValueOfOneUnit(numeralValue, Double.parseDouble(parameters.get(2)));
+
+                // check if name of mineral is illegal
+                if (this.isInputKeyWord(mineralName)) {
+                    return "I have no idea what you are talking about";
+                }
+                // add value of one unit of the given mineral to price list
+                this.addMineralValue(mineralName, valueOfOneUnitOfMineral);
+
+                return "";
+            }
+            case "3": {
+
+                // split intergalactic numeral in individual numerals
+                String[] intergalacticNumerals = parameters.get(0).split(" ");
+                StringBuilder romanNumeral = new StringBuilder();
+                for (String numeral : intergalacticNumerals) {
+                    // check if individual numeral is illegal or not known
+                    if (this.isInputKeyWord(numeral)) {
+                        return "I have no idea what you are talking about";
+                    }
+                    try {
+                        // build roman numeral from individual translated intergalactic numeral
+                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
+                    } catch (Exception e) {
+                        return "I have no idea what you are talking about";
+                    }
+                }
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+                return parameters.get(0) + " is " + numeralValue;
+            }
+            case "4":
+                String intergalacticNumeral = parameters.get(0);
+                String mineralName = parameters.get(1);
+
+                // split intergalactic numeral in individual numerals
+                String[] intergalacticNumerals = intergalacticNumeral.split(" ");
+                StringBuilder romanNumeral = new StringBuilder();
+                for (String numeral : intergalacticNumerals) {
+                    // check if individual numeral is illegal or not known
+                    if (this.isInputKeyWord(numeral)) {
+                        return "I have no idea what you are talking about";
+                    }
+                    try {
+                        // build roman numeral from individual translated intergalactic numeral
+                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
+                    } catch (Exception e) {
+                        return "I have no idea what you are talking about";
+                    }
+                }
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+
+                if (this.isInputKeyWord(mineralName)) {
+                    return "I have no idea what you are talking about";
+                }
+
+                double calculatedPrice;
+
+                try {
+                    calculatedPrice = this.getValueOfXUnits(numeralValue, mineralName);
+                }  catch (Exception e) {
+                    return "I have no idea what you are talking about";
+                }
+                if (calculatedPrice % 1 == 0) {
+                    return intergalacticNumeral + " " + mineralName + " is " + (int) calculatedPrice + " Credits";
+                }
+
+                return intergalacticNumeral + " " + mineralName + " is " + calculatedPrice + " Credits";
+        }
+        return "I have no idea what you are talking about";
     }
 
 }
