@@ -1,9 +1,6 @@
 package org.seitz.MerchantsGuideToTheGalaxy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -199,6 +196,37 @@ public class InputHandler {
      * @return              the arguments provided by user
      */
     public List<String> extractDataFromQuery(String inputQuery, String queryType) {
+
+        switch (queryType) {
+            case "1":
+                Pattern pattern = Pattern.compile("^([a-z]+) is ([IVXLCDM])$");
+                Matcher matcher = pattern.matcher(inputQuery);
+                if (matcher.find()) {
+                    return Arrays.asList(matcher.group(1), matcher.group(2));
+                }
+                break;
+            case "2":
+                pattern = Pattern.compile("^((?:[a-z]+ )+)([A-Z][a-z]+) is ([1-9]\\d*) Credits$");
+                matcher = pattern.matcher(inputQuery);
+                if (matcher.find()) {
+                    return Arrays.asList(matcher.group(1).trim(), matcher.group(2), matcher.group(3));
+                }
+                break;
+            case "3":
+                pattern = Pattern.compile("^how much is ((?:[a-z]+ )+)\\?$");
+                matcher = pattern.matcher(inputQuery);
+                if (matcher.find()) {
+                    return List.of(matcher.group(1).trim());
+                }
+                break;
+            case "4":
+                pattern = Pattern.compile("^how many Credits is ((?:[a-z]+ )+)([A-Z]+[a-z]+) \\?$");
+                matcher = pattern.matcher(inputQuery);
+                if (matcher.find()) {
+                    return Arrays.asList(matcher.group(1).trim(), matcher.group(2));
+                }
+                break;
+        }
         return new ArrayList<>();
     }
 
