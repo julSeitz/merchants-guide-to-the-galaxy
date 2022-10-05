@@ -230,4 +230,14 @@ public class InputHandler {
         return new ArrayList<>();
     }
 
+    /**
+     * Parsed user query and returns answer if applicable
+     *
+     * @param queryInput    the input query
+     * @return              answer to query, is "" when answer is required
+     */
+    public String parseQuery(String queryInput) {
+        return "";
+    }
+
 }
