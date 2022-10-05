@@ -122,7 +122,7 @@ public class InputHandler {
      */
     public boolean isInputKeyWord(String input) {
 
-        Pattern pattern = Pattern.compile("how|many|much|Credits|is");
+        Pattern pattern = Pattern.compile("^how$|^many$|^much$|^Credits$|^is$");
         Matcher matcher = pattern.matcher(input);
 
         return matcher.find();
