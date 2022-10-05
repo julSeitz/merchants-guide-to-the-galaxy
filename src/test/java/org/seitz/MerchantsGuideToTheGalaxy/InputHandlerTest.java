@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -294,6 +295,17 @@ class InputHandlerTest {
                         () -> assertEquals(answers.get(queries.indexOf(query)),
                                 secondHandler.extractDataFromQuery(query, "4"))
                 ));
+    }
+
+    @Test
+    void shouldReturnEmptyListWhenQueryTypeIsZero() {
+        List<String> emptyList = Collections.emptyList();
+        assertEquals(emptyList,
+                handler.extractDataFromQuery(
+                        "how much wood could a woodchuck chuck if a woodchuck could chuck wood ?",
+                        "0"
+                )
+        );
     }
 
 
