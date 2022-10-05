@@ -183,6 +183,46 @@ class InputHandlerTest {
         );
     }
 
+    //---------------------------------END OF TESTS FOR determineQueryType()--------------------------------------------
+
+    //-------------------------------START OF TESTS FOR extractDataFromQuery()------------------------------------------
+
+    @TestFactory
+    Stream<DynamicTest> shouldExtractQueryDataForTypeOneCorrectly() {
+        InputHandler secondHandler = new InputHandler();
+
+        List<String> queries = Arrays.asList(
+                "glob is I",
+                "prok is V",
+                "pish is X",
+                "tegj is L");
+
+        List<List<String>> answers = Arrays.asList(
+                Arrays.asList(
+                        "prok",
+                        "I"
+                ),
+                Arrays.asList(
+                        "prok",
+                        "V"
+                ),
+                Arrays.asList(
+                        "pish",
+                        "X"
+                ),
+                Arrays.asList(
+                        "tegj",
+                        "L"
+                )
+        );
+
+        return queries.stream().map(
+                query -> DynamicTest.dynamicTest("Is data correctly extracted from query " + query,
+                        () -> assertEquals(answers.get(queries.indexOf(query)),
+                                secondHandler.extractDataFromQuery(query, "1"))
+                ));
+    }
+
 
 
 }
