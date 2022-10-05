@@ -180,6 +180,14 @@ public class InputHandler {
             return "3";
         }
 
+        pattern = Pattern.compile("^how many Credits is (?:[a-z]+ )+[A-Z]+[a-z]+ \\?$");
+        matcher = pattern.matcher(inputQuery);
+        matchFound = matcher.find();
+
+        if (matchFound) {
+            return "4";
+        }
+
 
 
         return "";
