@@ -42,19 +42,6 @@ public class InputHandler {
     }
 
     /**
-     * Updates the corresponding roman numeral, of a known intergalactic numeral
-     *
-     * @param intergalacticNumeral  the intergalactic numeral given
-     * @param romanNumeral          the new corresponding roman numeral
-     */
-    public void updateIntergalacticNumeral(String intergalacticNumeral, String romanNumeral) throws Exception {
-        if (!this.intergalacticRomanDictionary.containsKey(intergalacticNumeral)) {
-            throw new Exception("Numeral " + intergalacticNumeral + " not known");
-        }
-        this.intergalacticRomanDictionary.put(intergalacticNumeral, romanNumeral);
-    }
-
-    /**
      * Adds the Credit value of one unit of the given mineral
      *
      * @param mineral   the given mineral

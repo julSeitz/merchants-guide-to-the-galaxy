@@ -30,22 +30,9 @@ class InputHandlerTest {
     }
 
     @Test
-    void shouldBeAbleToUpdateAndRetrieveNumeral() throws Exception {
-        handler.addIntergalacticNumeral("gek", "IX");
-        handler.updateIntergalacticNumeral("gek", "IX");
-        assertEquals("IX", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
-    }
-
-    @Test
     void shouldThrowExceptionWhenUnknownNumeralIsRequested() throws Exception{
         assertThrows(Exception.class,
                 () -> handler.getRomanNumeralFromIntergalacticNumeral("gek"));
-    }
-
-    @Test
-    void shouldThrowExceptionWhenUnknownNumeralIsUpdated() throws Exception {
-        assertThrows(Exception.class,
-                () -> handler.updateIntergalacticNumeral("gek", "IX"));
     }
 
     //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
