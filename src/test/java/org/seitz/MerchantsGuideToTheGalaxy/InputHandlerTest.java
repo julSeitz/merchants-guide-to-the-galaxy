@@ -146,7 +146,7 @@ class InputHandlerTest {
     //-------------------------------START OF TESTS FOR determineQueryType()--------------------------------------------
 
     @TestFactory
-    Stream<DynamicTest> sh() {
+    Stream<DynamicTest> shouldDetermineQueryTypeCorrectly() {
         InputHandler secondHandler = new InputHandler();
         List<String> queries = Arrays.asList(
                 "glob is I",
