@@ -155,7 +155,7 @@ public class InputHandler {
      * @param inputQuery    user input
      * @return              the type if the user input
      */
-    private String determineQueryType(String inputQuery) {
+    public String determineQueryType(String inputQuery) {
         return "";
     }
 
