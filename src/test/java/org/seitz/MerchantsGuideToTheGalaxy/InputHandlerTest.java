@@ -200,7 +200,7 @@ class InputHandlerTest {
 
         List<List<String>> answers = Arrays.asList(
                 Arrays.asList(
-                        "prok",
+                        "glob",
                         "I"
                 ),
                 Arrays.asList(
