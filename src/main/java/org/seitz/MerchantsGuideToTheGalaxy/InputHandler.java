@@ -316,17 +316,20 @@ public class InputHandler {
                 }
                 int numeralValue = this.calculator.getNumeralValue(romanNumeral);
 
+                // check if mineral name is illegal
                 if (this.isInputKeyWord(mineralName)) {
                     return "I have no idea what you are talking about";
                 }
 
                 double calculatedPrice;
-
+                // get price of X units of the given mineral, where X is the value of the intergalactic numeral
                 try {
                     calculatedPrice = this.getValueOfXUnits(numeralValue, mineralName);
                 }  catch (Exception e) {
                     return "I have no idea what you are talking about";
                 }
+
+                // return price as converted integer, instead of converted double, when price is a whole number
                 if (calculatedPrice % 1 == 0) {
                     return intergalacticNumeral + " " + mineralName + " is " + (int) calculatedPrice + " Credits";
                 }
