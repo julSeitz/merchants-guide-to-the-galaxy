@@ -218,6 +218,27 @@ public class InputHandler {
     }
 
     /**
+     * Returns multi symbol roman numeral from multi symbol intergalactic numeral
+     *
+     * @param intergalacticNumeral  the multi symbol intergalactic numeral
+     * @return                      the multi symbol roman numeral
+     * @throws Exception            throws exception in case symbol is not known or illegal
+     */
+    private String translateIntergalacticNumeral(String intergalacticNumeral) throws Exception{
+        // split intergalactic numeral in individual numerals
+        String[] intergalacticNumerals = intergalacticNumeral.split(" ");
+        StringBuilder romanNumeral = new StringBuilder();
+        for (String numeral : intergalacticNumerals) {
+            // check if individual numeral is illegal
+            if (this.isInputKeyWord(numeral)) {
+                throw new Exception("Numeral contains reserved keyword");
+            }
+            romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
+        }
+        return romanNumeral.toString();
+    }
+
+    /**
      * Parsed user query and returns answer if applicable
      *
      * @param queryInput    the input query
@@ -241,27 +262,23 @@ public class InputHandler {
             }
             case "2": {
                 String mineralName = parameters.get(1);
+                String intergalacticNumeral = parameters.get(0);
+                String numberOfUnits = parameters.get(2);
 
-                // split intergalactic numeral in individual numerals
-                String[] intergalacticNumerals = parameters.get(0).split(" ");
-                StringBuilder romanNumeral = new StringBuilder();
-                for (String numeral : intergalacticNumerals) {
-                    // check if individual numeral is illegal or not known
-                    if (this.isInputKeyWord(numeral)) {
-                        return "I have no idea what you are talking about";
-                    }
-                    try {
-                        // build roman numeral from individual translated intergalactic numeral
-                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
-                    } catch (Exception e) {
-                        return "I have no idea what you are talking about";
-                    }
+                String romanNumeral;
+
+                // translate intergalactic numeral to roman numeral
+                try {
+                    romanNumeral = this.translateIntergalacticNumeral(intergalacticNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
                 }
+
                 // get integer value number of units from roman numeral
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
 
                 // calculate value of one unit of the mineral
-                double valueOfOneUnitOfMineral = this.calculateValueOfOneUnit(numeralValue, Double.parseDouble(parameters.get(2)));
+                double valueOfOneUnitOfMineral = this.calculateValueOfOneUnit(numeralValue, Double.parseDouble(numberOfUnits));
 
                 // check if name of mineral is illegal
                 if (this.isInputKeyWord(mineralName)) {
@@ -273,45 +290,31 @@ public class InputHandler {
                 return "";
             }
             case "3": {
+                String intergalacticNumeral = parameters.get(0);
+                String romanNumeral;
 
-                // split intergalactic numeral in individual numerals
-                String[] intergalacticNumerals = parameters.get(0).split(" ");
-                StringBuilder romanNumeral = new StringBuilder();
-                for (String numeral : intergalacticNumerals) {
-                    // check if individual numeral is illegal or not known
-                    if (this.isInputKeyWord(numeral)) {
-                        return "I have no idea what you are talking about";
-                    }
-                    try {
-                        // build roman numeral from individual translated intergalactic numeral
-                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
-                    } catch (Exception e) {
-                        return "I have no idea what you are talking about";
-                    }
+                // translate intergalactic numeral to roman numeral
+                try {
+                    romanNumeral = this.translateIntergalacticNumeral(intergalacticNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
                 }
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
                 return parameters.get(0) + " is " + numeralValue;
             }
             case "4":
                 String intergalacticNumeral = parameters.get(0);
                 String mineralName = parameters.get(1);
 
-                // split intergalactic numeral in individual numerals
-                String[] intergalacticNumerals = intergalacticNumeral.split(" ");
-                StringBuilder romanNumeral = new StringBuilder();
-                for (String numeral : intergalacticNumerals) {
-                    // check if individual numeral is illegal or not known
-                    if (this.isInputKeyWord(numeral)) {
-                        return "I have no idea what you are talking about";
-                    }
-                    try {
-                        // build roman numeral from individual translated intergalactic numeral
-                        romanNumeral.append(this.getRomanNumeralFromIntergalacticNumeral(numeral));
-                    } catch (Exception e) {
-                        return "I have no idea what you are talking about";
-                    }
+                String romanNumeral;
+
+                // translate intergalactic numeral to roman numeral
+                try {
+                    romanNumeral = this.translateIntergalacticNumeral(intergalacticNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
                 }
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral.toString());
+                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
 
                 if (this.isInputKeyWord(mineralName)) {
                     return "I have no idea what you are talking about";
