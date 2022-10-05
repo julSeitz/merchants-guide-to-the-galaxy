@@ -329,12 +329,16 @@ public class InputHandler {
                     return "I have no idea what you are talking about";
                 }
 
-                // return price as converted integer, instead of converted double, when price is a whole number
-                if (calculatedPrice % 1 == 0) {
-                    return intergalacticNumeral + " " + mineralName + " is " + (int) calculatedPrice + " Credits";
-                }
 
-                return intergalacticNumeral + " " + mineralName + " is " + calculatedPrice + " Credits";
+                StringBuilder answer = new StringBuilder(intergalacticNumeral + " " + mineralName + " is ");
+
+                // build answer with price as converted integer, instead of converted double, when price is a whole number
+                if (calculatedPrice % 1 == 0) {
+                    answer.append((int) calculatedPrice);
+                } else {
+                    answer.append(calculatedPrice);
+                }
+                return answer.append(" Credits").toString();
         }
         return "I have no idea what you are talking about";
     }
