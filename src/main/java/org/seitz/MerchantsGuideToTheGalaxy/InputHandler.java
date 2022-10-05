@@ -198,7 +198,7 @@ public class InputHandler {
      * @param queryType     the type of user input
      * @return              the arguments provided by user
      */
-    public List<String> extractDataFromQuery(String inputQuery, String queryType) {
+    public List<String> extractDataFromQuery(String inputQuery, String queryType) throws Exception{
         return new ArrayList<>();
     }
 
