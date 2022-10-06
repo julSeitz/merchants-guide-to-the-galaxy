@@ -340,6 +340,11 @@ class InputParserTest {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob is Silver is 57800 Credits"));
     }
 
+    @Test
+    void shouldNotAcceptInvalidNumeralForTypeTwo() {
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob glob Silver is 57800 Credits"));
+    }
+
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
 }
