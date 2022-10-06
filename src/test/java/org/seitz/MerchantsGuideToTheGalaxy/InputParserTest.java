@@ -331,12 +331,12 @@ class InputParserTest {
     }
 
     @Test
-    void shouldNotAcceptKeywordAsNumeral() {
+    void shouldNotAcceptKeywordAsNumeralForTypeOne() {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("is is I"));
     }
 
     @Test
-    void shouldNotAcceptKeywordAsSymbol() {
+    void shouldNotAcceptKeywordAsSymbolForTypeTwo() {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob is Silver is 57800 Credits"));
     }
 
