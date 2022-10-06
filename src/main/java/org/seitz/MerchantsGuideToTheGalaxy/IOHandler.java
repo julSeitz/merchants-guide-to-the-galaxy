@@ -1,5 +1,7 @@
 package org.seitz.MerchantsGuideToTheGalaxy;
 
+import java.util.Scanner;
+
 /**
  * This class provides tools to interact with the user
  */
@@ -24,16 +26,6 @@ public class IOHandler {
     }
 
     /**
-     * Retrieves user input
-     *
-     * @return  the user input
-     */
-    public String getQuery() {
-        // TODO: implement
-        return "";
-    }
-
-    /**
      * Answers query by writing to console
      *
      * @param query user query
@@ -53,9 +45,10 @@ public class IOHandler {
     /**
      * Provides user interface
      *
-     * @return  answer if user wants to continue
+     * @param scanner   scanner to get user input
+     * @return          answer if user wants to continue
      */
-    public boolean readAndWrite() {
+    public boolean readAndWrite(Scanner scanner) {
         // TODO: implement
         return false;
     }
