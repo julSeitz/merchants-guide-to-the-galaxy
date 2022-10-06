@@ -352,6 +352,12 @@ class InputParserTest {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob Credits is 57800 Credits"));
     }
 
+    @Test
+    void shouldNotAcceptInvalidNumeralForTypeThree() {
+        handler.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("how much is glob is ?"));
+    }
+
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
 }
