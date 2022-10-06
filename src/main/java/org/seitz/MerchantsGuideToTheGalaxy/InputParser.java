@@ -12,7 +12,17 @@ public class InputParser {
     /**
      * Calculator to handle roman numerals
      */
-    private RomanNumeralCalculator calculator;
+    private final RomanNumeralCalculator calculator;
+
+    /**
+     * A dictionary to save the corresponding roman numeral to an intergalactic numeral
+     */
+    private final Map<String, String> intergalacticRomanDictionary = new HashMap<>();
+
+    /**
+     * A list to save the Credit value of one unit of a given mineral
+     */
+    private final Map<String, Double> mineralValueList = new HashMap<>();
 
     /**
      * Constructor which creates new internal calculator for roman numerals
@@ -20,16 +30,6 @@ public class InputParser {
     public InputParser() {
         this.calculator = new RomanNumeralCalculator();
     }
-
-    /**
-     * A dictionary to save the corresponding roman numeral to an intergalactic numeral
-     */
-    private Map<String, String> intergalacticRomanDictionary = new HashMap<>();
-
-    /**
-     * A list to save the Credit value of one unit of a given mineral
-     */
-    private Map<String, Double> mineralValueList = new HashMap<>();
 
     /**
      * Adds a previously unknown intergalactic numeral to the dictionary, with it's corresponding roman numeral
