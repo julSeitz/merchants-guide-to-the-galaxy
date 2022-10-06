@@ -32,7 +32,7 @@ class InputParserTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUnknownNumeralIsRequested() throws Exception{
+    void shouldThrowExceptionWhenUnknownNumeralIsRequested() {
         assertThrows(Exception.class,
                 () -> handler.getRomanNumeralFromIntergalacticNumeral("gek"));
     }
@@ -89,7 +89,7 @@ class InputParserTest {
     }
 
     @Test
-    void shouldThrowExceptionForUnknownMineral() throws Exception {
+    void shouldThrowExceptionForUnknownMineral() {
         assertThrows(Exception.class,
                 () -> handler.getValueOfXUnits(23, "Silver"));
     }
