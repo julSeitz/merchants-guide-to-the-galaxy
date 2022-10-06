@@ -12,45 +12,43 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// TODO: refactor documentation
-
 class InputParserTest {
 
-    InputParser handler;
+    InputParser parser;
 
     @BeforeEach
     void setUp() {
-        handler = new InputParser();
+        parser = new InputParser();
     }
 
-    //--START OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
+    //----------START OF TESTS FOR addIntergalacticNumeral() AND getRomanNumeralFromIntergalacticNumeral()--------------
 
     @Test
     void shouldBeAbleToStoreAndRetrieveNumeral() throws  Exception {
-        handler.addIntergalacticNumeral("gek", "IV");
-        assertEquals("IV", handler.getRomanNumeralFromIntergalacticNumeral("gek"));
+        parser.addIntergalacticNumeral("gek", "IV");
+        assertEquals("IV", parser.getRomanNumeralFromIntergalacticNumeral("gek"));
     }
 
     @Test
     void shouldThrowExceptionWhenUnknownNumeralIsRequested() {
         assertThrows(Exception.class,
-                () -> handler.getRomanNumeralFromIntergalacticNumeral("gek"));
+                () -> parser.getRomanNumeralFromIntergalacticNumeral("gek"));
     }
 
-    //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
+    //------------END OF TESTS FOR addIntergalacticNumeral() AND getRomanNumeralFromIntergalacticNumeral()--------------
 
     //--------------------------START OF TESTS FOR setMineralValue() AND getMineralValue()------------------------------
 
     @Test
     void shouldBeAbleToStoreAndRetrieveMineral() throws Exception{
-        handler.setMineralValue("Silver", 82.1);
-        assertEquals(82.1, handler.getMineralValue("Silver"));
+        parser.setMineralValue("Silver", 82.1);
+        assertEquals(82.1, parser.getMineralValue("Silver"));
     }
 
     @Test
     void shouldThrowExceptionWhenUnknownMineralIsRequested() {
         assertThrows(Exception.class,
-                () -> handler.getMineralValue("Silver"));
+                () -> parser.getMineralValue("Silver"));
     }
 
     //-----------------------------END OF TESTS FOR setMineralValue() AND getMineralValue()-----------------------------
@@ -61,21 +59,21 @@ class InputParserTest {
 
     @Test
     void shouldEqualFive() {
-        assertEquals(5.0, handler.calculateValueOfOneUnit(20, 100.0));
+        assertEquals(5.0, parser.calculateValueOfOneUnit(20, 100.0));
     }
 
     // Testing of division works for odd results
 
     @Test
     void shouldEqualTwoPointFive() {
-        assertEquals(2.5, handler.calculateValueOfOneUnit(6, 15.0));
+        assertEquals(2.5, parser.calculateValueOfOneUnit(6, 15.0));
     }
 
     // Testing of division works for odd inputs
 
     @Test
     void shouldEqualFourPointThreeFive() {
-        assertEquals(4.35, handler.calculateValueOfOneUnit(4, 17.4));
+        assertEquals(4.35, parser.calculateValueOfOneUnit(4, 17.4));
     }
 
     //-------------------------------END OF TESTS FOR calculateValueOfOneUnit()-----------------------------------------
@@ -84,14 +82,14 @@ class InputParserTest {
 
     @Test
     void shouldEqualSixHundredSeventyFivePointSevenFour() throws Exception {
-        handler.setMineralValue("Silver", 29.38);
-        assertEquals(675.74, handler.getValueOfXUnits(23, "Silver"));
+        parser.setMineralValue("Silver", 29.38);
+        assertEquals(675.74, parser.getValueOfXUnits(23, "Silver"));
     }
 
     @Test
     void shouldThrowExceptionForUnknownMineral() {
         assertThrows(Exception.class,
-                () -> handler.getValueOfXUnits(23, "Silver"));
+                () -> parser.getValueOfXUnits(23, "Silver"));
     }
 
     //-------------------------------END OF TESTS FOR getValueOfXUnits()------------------------------------------------
@@ -237,7 +235,7 @@ class InputParserTest {
     @Test
     void shouldExtractQueryDataForTypeThreeCorrectly() {
         assertEquals("pish tegj glob glob",
-                handler.extractDataFromQuery("how much is pish tegj glob glob ?", "3").get(0)
+                parser.extractDataFromQuery("how much is pish tegj glob glob ?", "3").get(0)
         );
     }
 
@@ -277,7 +275,7 @@ class InputParserTest {
     void shouldReturnEmptyListWhenQueryTypeIsZero() {
         List<String> emptyList = Collections.emptyList();
         assertEquals(emptyList,
-                handler.extractDataFromQuery(
+                parser.extractDataFromQuery(
                         "how much wood could a woodchuck chuck if a woodchuck could chuck wood ?",
                         "0"
                 )
@@ -332,71 +330,71 @@ class InputParserTest {
 
     @Test
     void shouldNotAcceptKeywordAsNumeralForTypeOne() {
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("is is I"));
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("is is I"));
     }
 
     @Test
     void shouldNotAcceptKeywordAsSymbolForTypeTwo() {
-        handler.addIntergalacticNumeral("glob", "I");
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob is Silver is 57800 Credits"));
+        parser.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("glob is Silver is 57800 Credits"));
     }
 
     @Test
     void shouldNotAcceptInvalidNumeralForTypeTwo() {
-        handler.addIntergalacticNumeral("glob", "I");
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob glob Silver is 57800 Credits"));
+        parser.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("glob glob glob glob Silver is 57800 Credits"));
     }
     @Test
     void shouldNotAcceptInvalidMineralForTypeTwo() {
-        handler.addIntergalacticNumeral("glob", "I");
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob Credits is 57800 Credits"));
+        parser.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("glob glob glob Credits is 57800 Credits"));
     }
 
     @Test
     void shouldNotAcceptInvalidSymbolForTypeThree() {
-        handler.addIntergalacticNumeral("glob", "I");
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how much is glob is ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how much is glob is ?"));
     }
 
     @Test
     void shouldNotAcceptInvalidNumeralForTypeThree() {
-        handler.addIntergalacticNumeral("glob", "I");
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how much is glob glob glob glob ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how much is glob glob glob glob ?"));
     }
 
     @Test
     void shouldNotAcceptInvalidSymbolForTypeFour() {
-        handler.addIntergalacticNumeral("glob", "I");
-        handler.setMineralValue("Iron", 82.0);
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob many Iron ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        parser.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how many Credits is glob many Iron ?"));
     }
 
     @Test
     void shouldNotAcceptInvalidNumeralForTypeFour() {
-        handler.addIntergalacticNumeral("glob", "I");
-        handler.setMineralValue("Iron", 82.0);
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob glob glob glob Iron ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        parser.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how many Credits is glob glob glob glob Iron ?"));
     }
 
     @Test
     void shouldNotAcceptIllegalMineralForTypeFour() {
-        handler.addIntergalacticNumeral("glob", "I");
-        handler.setMineralValue("Iron", 82.0);
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob Credits ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        parser.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how many Credits is glob Credits ?"));
     }
 
     @Test
     void shouldNotAcceptUnknownMineralForTypeFour() {
-        handler.addIntergalacticNumeral("glob", "I");
-        handler.setMineralValue("Iron", 82.0);
-        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob Silver ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        parser.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", parser.parseQuery("how many Credits is glob Silver ?"));
     }
 
     @Test
     void shouldReturnUnevenPrice() {
-        handler.addIntergalacticNumeral("glob", "I");
-        handler.setMineralValue("Iron", 1.5);
-        assertEquals("glob glob glob Iron is 4.5 Credits", handler.parseQuery("how many Credits is glob glob glob Iron ?"));
+        parser.addIntergalacticNumeral("glob", "I");
+        parser.setMineralValue("Iron", 1.5);
+        assertEquals("glob glob glob Iron is 4.5 Credits", parser.parseQuery("how many Credits is glob glob glob Iron ?"));
     }
 
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
