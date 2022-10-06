@@ -30,7 +30,7 @@ public class IOHandler {
      *
      * @param query user query
      */
-    public void outPutAnswerToQuery(String query) {
+    public void outputAnswerToQuery(String query) {
         // TODO: implement
     }
 
