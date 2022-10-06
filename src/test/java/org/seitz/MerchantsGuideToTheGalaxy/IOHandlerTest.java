@@ -17,16 +17,21 @@ class IOHandlerTest {
     private final PrintStream originalOut = System.out;
     private final InputStream originalIn = System.in;
 
+    InputParser parser;
+
     IOHandler handler;
 
     @BeforeEach
     public void setUp() {
         handler = new IOHandler();
+        parser = new InputParser();
         System.setOut(new PrintStream(consoleOut));
     }
 
     @AfterEach
     public void cleanUp() {
+        handler = null;
+        parser =  null;
         System.setOut(originalOut);
         System.setIn(originalIn);
     }
@@ -35,14 +40,12 @@ class IOHandlerTest {
 
     @Test
     void shouldPrintEmptyLineWhenNumeralIsSet() {
-        InputParser parser = new InputParser();
         handler.outputAnswerToQuery("glob is I", parser);
         assertEquals("", consoleOut.toString());
     }
 
     @Test
     void shouldPrintEmptyLineWhenMineralValueIsSet() {
-        InputParser parser = new InputParser();
         parser.parseQuery("glob is I");
         handler.outputAnswerToQuery("glob glob Silver is 34 Credits", parser);
         assertEquals("", consoleOut.toString());
@@ -50,7 +53,6 @@ class IOHandlerTest {
 
     @Test
     void shouldPrintNumeralValue() {
-        InputParser parser = new InputParser();
         parser.parseQuery("glob is I");
         parser.parseQuery("pish is X");
         parser.parseQuery("tegj is L");
@@ -60,7 +62,6 @@ class IOHandlerTest {
 
     @Test
     void shouldPrintValueOfMineral() {
-        InputParser parser = new InputParser();
         parser.parseQuery("glob is I");
         parser.parseQuery("prok is V");
         parser.parseQuery("glob prok Gold is 57800 Credits");
