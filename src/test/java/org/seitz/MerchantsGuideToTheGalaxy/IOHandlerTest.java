@@ -54,4 +54,13 @@ class IOHandlerTest {
         handler.outputAnswerToQuery("how much is pish tegj glob glob ?", parser);
         assertEquals("pish tegj glob glob is 42", consoleOut.toString());
     }
+
+    @Test
+    void shouldPrintValueOfMineral() {
+        InputParser parser = new InputParser();
+        parser.parseQuery("glob is I");
+        parser.parseQuery("prok is V");
+        parser.parseQuery("glob prok Gold is 57800 Credits");
+        assertEquals("how many Credits is glob prok Gold ?", consoleOut.toString());
+    }
 }
