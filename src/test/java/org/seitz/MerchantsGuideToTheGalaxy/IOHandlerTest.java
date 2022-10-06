@@ -82,4 +82,12 @@ class IOHandlerTest {
         Scanner scanner = new Scanner(in);
         assertTrue(handler.readAndWrite(scanner, parser));
     }
+
+    @Test
+    void shouldReturnFalseWhenUserInputIsExit() {
+        ByteArrayInputStream in = new ByteArrayInputStream("EXIT".getBytes());
+        System.setIn(in);
+        Scanner scanner = new Scanner(in);
+        assertFalse(handler.readAndWrite(scanner, parser));
+    }
 }
