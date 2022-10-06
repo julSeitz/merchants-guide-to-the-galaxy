@@ -261,8 +261,14 @@ public class InputParser {
                     return "I have no idea what you are talking about";
                 }
 
+                int numeralValue;
+
                 // get integer value number of units from roman numeral
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
+                try {
+                    numeralValue = this.calculator.getNumeralValue(romanNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
+                }
 
                 // calculate value of one unit of the mineral
                 double valueOfOneUnitOfMineral = this.calculateValueOfOneUnit(numeralValue, Double.parseDouble(numberOfUnits));
@@ -286,7 +292,15 @@ public class InputParser {
                 } catch (Exception e) {
                     return "I have no idea what you are talking about";
                 }
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
+
+                int numeralValue;
+
+                // get integer value number of units from roman numeral
+                try {
+                    numeralValue = this.calculator.getNumeralValue(romanNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
+                }
                 return parameters.get(0) + " is " + numeralValue;
             }
             case "4":
@@ -301,7 +315,15 @@ public class InputParser {
                 } catch (Exception e) {
                     return "I have no idea what you are talking about";
                 }
-                int numeralValue = this.calculator.getNumeralValue(romanNumeral);
+
+                int numeralValue;
+
+                // get integer value number of units from roman numeral
+                try {
+                    numeralValue = this.calculator.getNumeralValue(romanNumeral);
+                } catch (Exception e) {
+                    return "I have no idea what you are talking about";
+                }
 
                 // check if mineral name is illegal
                 if (this.isInputKeyWord(mineralName)) {
