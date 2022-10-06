@@ -335,6 +335,11 @@ class InputParserTest {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("is is I"));
     }
 
+    @Test
+    void shouldNotAcceptKeywordAsSymbol() {
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob is Silver is 57800 Credits"));
+    }
+
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
 }
