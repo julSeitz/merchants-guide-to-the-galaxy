@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// TODO: refactor documentation
+
 class InputParserTest {
 
     InputParser handler;
@@ -326,6 +328,11 @@ class InputParserTest {
                                 secondHandler.parseQuery(query))
                 )
         );
+    }
+
+    @Test
+    void shouldNotAcceptKeywordAsNumeral() {
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("is is I"));
     }
 
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
