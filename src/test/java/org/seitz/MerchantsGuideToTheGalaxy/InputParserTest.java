@@ -364,6 +364,41 @@ class InputParserTest {
         assertEquals("I have no idea what you are talking about", handler.parseQuery("how much is glob glob glob glob ?"));
     }
 
+    @Test
+    void shouldNotAcceptInvalidSymbolForTypeFour() {
+        handler.addIntergalacticNumeral("glob", "I");
+        handler.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob many Iron ?"));
+    }
+
+    @Test
+    void shouldNotAcceptInvalidNumeralForTypeFour() {
+        handler.addIntergalacticNumeral("glob", "I");
+        handler.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob glob glob glob Iron ?"));
+    }
+
+    @Test
+    void shouldNotAcceptIllegalMineralForTypeFour() {
+        handler.addIntergalacticNumeral("glob", "I");
+        handler.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob Credits ?"));
+    }
+
+    @Test
+    void shouldNotAcceptUnknownMineralForTypeFour() {
+        handler.addIntergalacticNumeral("glob", "I");
+        handler.setMineralValue("Iron", 82.0);
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("how many Credits is glob Silver ?"));
+    }
+
+    @Test
+    void shouldReturnUnevenPrice() {
+        handler.addIntergalacticNumeral("glob", "I");
+        handler.setMineralValue("Iron", 1.5);
+        assertEquals("glob glob glob Iron is 4.5 Credits", handler.parseQuery("how many Credits is glob glob glob Iron ?"));
+    }
+
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
 }
