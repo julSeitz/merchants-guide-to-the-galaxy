@@ -53,7 +53,7 @@ class InputParserTest {
     }
 
     @Test
-    void shouldThrowExceptionWhenUnknownMineralIsRequested() throws Exception {
+    void shouldThrowExceptionWhenUnknownMineralIsRequested() {
         assertThrows(Exception.class,
                 () -> handler.getMineralValue("Silver"));
     }
@@ -340,5 +340,7 @@ class InputParserTest {
                 )
         );
     }
+
+    //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
 }
