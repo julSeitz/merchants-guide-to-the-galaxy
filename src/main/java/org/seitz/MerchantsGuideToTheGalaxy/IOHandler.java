@@ -39,7 +39,19 @@ public class IOHandler {
      * @return          answer if user wants to continue
      */
     public boolean readAndWrite(Scanner scanner, InputParser parser) {
-        // TODO: implement
+        if (!this.preamble.isEmpty()) {
+            System.out.println(this.preamble);
+            this.preamble = "";
+        }
+        System.out.print("> ");
+
+        String query = scanner.nextLine();
+
+        if (query.equals("EXIT")) {
+            return false;
+        }
+
+        this.outputAnswerToQuery(query, parser);
         return true;
     }
 }
