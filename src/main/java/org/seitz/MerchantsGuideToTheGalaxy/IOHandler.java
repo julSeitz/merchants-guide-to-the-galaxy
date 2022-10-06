@@ -11,16 +11,16 @@ public class IOHandler {
     private InputParser parser;
 
     /**
-     * The output displayed at program start
+     * The output
      */
-    private final String firstOutput;
+    private final String preamble;
 
     /**
      * Constructor to set parser and firstOutput
      */
     public IOHandler() {
         this.parser = new InputParser();
-        this.firstOutput = "Type EXIT to quit:";
+        this.preamble = "Type EXIT to quit:";
     }
 
     /**
@@ -28,15 +28,35 @@ public class IOHandler {
      *
      * @return  the user input
      */
-    private String getQuery() {
+    public String getQuery() {
         // TODO: implement
         return "";
     }
 
     /**
-     * Provides user interface and displays appropriate answer to user input
+     * Answers query by writing to console
+     *
+     * @param query user query
      */
-    public void readAndWrite() {
+    public void outPutAnswerToQuery(String query) {
         // TODO: implement
+    }
+
+    /**
+     * Sets up user interface for new input
+     *
+     */
+    public void setUpUserInterface() {
+        // TODO: implement
+    }
+
+    /**
+     * Provides user interface
+     *
+     * @return  answer if user wants to continue
+     */
+    public boolean readAndWrite() {
+        // TODO: implement
+        return false;
     }
 }
