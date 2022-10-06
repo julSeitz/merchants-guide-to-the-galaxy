@@ -353,7 +353,7 @@ class InputParserTest {
     }
 
     @Test
-    void shouldNotAcceptInvalidNumeralForTypeThree() {
+    void shouldNotAcceptInvalidSymbolForTypeThree() {
         handler.addIntergalacticNumeral("glob", "I");
         assertEquals("I have no idea what you are talking about", handler.parseQuery("how much is glob is ?"));
     }
