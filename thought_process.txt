@@ -11,6 +11,8 @@ Thought process:
     Renamed InputHandler to InputParser to reflect it's role better in name.
     Next step: Designing a class to handle IO and associated tests.
     Noticed gaps in test coverage of RomanNumeralCalcolator and InputParser.
+    Implemented class to handle IO and associated tests.
+    Designed and implemented new tests to improve code coverage.
 
 Assumptions:
     1. The program should be able to process any 'intergalactic numeral' given.
