@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,6 +15,7 @@ class IOHandlerTest {
     private final ByteArrayOutputStream consoleOut = new ByteArrayOutputStream();
 
     private final PrintStream originalOut = System.out;
+    private final InputStream originalIn = System.in;
 
     IOHandler handler;
 
@@ -26,6 +28,7 @@ class IOHandlerTest {
     @AfterEach
     public void cleanUp() {
         System.setOut(originalOut);
+        System.setIn(originalIn);
     }
 
     //--------------------------------START OF TESTS FOR outputAnswerToQuery()------------------------------------------
