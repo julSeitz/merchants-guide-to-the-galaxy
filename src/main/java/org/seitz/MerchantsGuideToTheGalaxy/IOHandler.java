@@ -15,7 +15,7 @@ public class IOHandler {
     /**
      * The output
      */
-    private final String preamble;
+    private String preamble;
 
     /**
      * Constructor to set parser and firstOutput
@@ -35,14 +35,6 @@ public class IOHandler {
     }
 
     /**
-     * Sets up user interface for new input
-     *
-     */
-    public void setUpUserInterface() {
-        // TODO: implement
-    }
-
-    /**
      * Provides user interface
      *
      * @param scanner   scanner to get user input
@@ -50,6 +42,6 @@ public class IOHandler {
      */
     public boolean readAndWrite(Scanner scanner) {
         // TODO: implement
-        return false;
+        return true;
     }
 }
