@@ -337,11 +337,13 @@ class InputParserTest {
 
     @Test
     void shouldNotAcceptKeywordAsSymbolForTypeTwo() {
+        handler.addIntergalacticNumeral("glob", "I");
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob is Silver is 57800 Credits"));
     }
 
     @Test
     void shouldNotAcceptInvalidNumeralForTypeTwo() {
+        handler.addIntergalacticNumeral("glob", "I");
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob glob Silver is 57800 Credits"));
     }
 
