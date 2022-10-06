@@ -25,7 +25,11 @@ public class IOHandler {
      * @param query user query
      */
     public void outputAnswerToQuery(String query, InputParser parser) {
-        // TODO: implement
+        String answer = parser.parseQuery(query);
+        if (answer.isEmpty()) {
+            return;
+        }
+        System.out.println("> " + parser.parseQuery(query));
     }
 
     /**
