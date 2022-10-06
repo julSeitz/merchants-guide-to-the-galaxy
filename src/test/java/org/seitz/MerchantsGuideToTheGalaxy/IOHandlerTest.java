@@ -90,4 +90,6 @@ class IOHandlerTest {
         Scanner scanner = new Scanner(in);
         assertFalse(handler.readAndWrite(scanner, parser));
     }
+
+    //-----------------------------------------END OF TESTS FOR readAndWrite()------------------------------------------
 }
