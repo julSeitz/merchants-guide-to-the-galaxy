@@ -1,0 +1,9 @@
+To build and execute follow these steps:
+
+1. Build
+Build the docker image by running:
+docker build -t merchants-guide-java --target production .
+
+2. Execution
+Run the program via in interactive docker container by running:
+docker run -it --rm merchants-guide-java
