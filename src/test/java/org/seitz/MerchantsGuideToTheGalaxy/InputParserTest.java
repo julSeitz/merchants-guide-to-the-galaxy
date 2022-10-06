@@ -37,19 +37,12 @@ class InputParserTest {
 
     //--END OF TESTS FOR addIntergalacticNumeral(), getRomanNumeralFromIntergalacticNumeral() AND updateIntergalacticNumeral()
 
-    //--------------------START OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
+    //--------------------------START OF TESTS FOR setMineralValue() AND getMineralValue()------------------------------
 
     @Test
     void shouldBeAbleToStoreAndRetrieveMineral() throws Exception{
-        handler.addMineralValue("Silver", 82.1);
+        handler.setMineralValue("Silver", 82.1);
         assertEquals(82.1, handler.getMineralValue("Silver"));
-    }
-
-    @Test
-    void shouldBeAbleToUpdateAndRetrieveMineral() throws Exception {
-        handler.addMineralValue("Silver", 82.1);
-        handler.updateMineralValue("Silver", 79.3);
-        assertEquals(79.3, handler.getMineralValue("Silver"));
     }
 
     @Test
@@ -58,13 +51,7 @@ class InputParserTest {
                 () -> handler.getMineralValue("Silver"));
     }
 
-    @Test
-    void shouldThrowExceptionWhenUnknownMineralIsUpdated() throws Exception {
-        assertThrows(Exception.class,
-                () -> handler.updateMineralValue("Silver", 87.4));
-    }
-
-    //----------------------END OF TESTS FOR addMineralValue(), getMineralValue() AND updateMineralValue()--------------
+    //-----------------------------END OF TESTS FOR setMineralValue() AND getMineralValue()-----------------------------
 
     //-------------------------------START OF TESTS FOR calculateValueOfOneUnit()---------------------------------------
 
@@ -95,7 +82,7 @@ class InputParserTest {
 
     @Test
     void shouldEqualSixHundredSeventyFivePointSevenFour() throws Exception {
-        handler.addMineralValue("Silver", 29.38);
+        handler.setMineralValue("Silver", 29.38);
         assertEquals(675.74, handler.getValueOfXUnits(23, "Silver"));
     }
 

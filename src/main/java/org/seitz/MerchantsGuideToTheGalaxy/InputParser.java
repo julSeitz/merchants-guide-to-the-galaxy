@@ -47,23 +47,10 @@ public class InputParser {
      * @param mineral   the given mineral
      * @param value     the Credit value of one unit
      */
-    public void addMineralValue(String mineral, Double value) {
+    public void setMineralValue(String mineral, Double value) {
         this.mineralValueList.put(mineral, value);
     }
 
-
-    /**
-     * Updates the Credit value of one unit of a given mineral
-     *
-     * @param mineral   the given mineral
-     * @param value     the given Credit value of one unit
-     */
-    public void updateMineralValue(String mineral, Double value) throws Exception{
-        if (!this.mineralValueList.containsKey(mineral)) {
-            throw new Exception("Mineral " + mineral + " not known");
-        }
-        this.mineralValueList.put(mineral, value);
-    }
 
     /**
      * Returns the equivalent roman numeral, to a given intergalactic numeral
@@ -285,7 +272,7 @@ public class InputParser {
                     return "I have no idea what you are talking about";
                 }
                 // add value of one unit of the given mineral to price list
-                this.addMineralValue(mineralName, valueOfOneUnitOfMineral);
+                this.setMineralValue(mineralName, valueOfOneUnitOfMineral);
 
                 return "";
             }
