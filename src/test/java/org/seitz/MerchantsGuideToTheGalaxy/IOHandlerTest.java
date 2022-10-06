@@ -52,7 +52,7 @@ class IOHandlerTest {
         parser.parseQuery("pish is X");
         parser.parseQuery("tegj is L");
         handler.outputAnswerToQuery("how much is pish tegj glob glob ?", parser);
-        assertEquals("pish tegj glob glob is 42", consoleOut.toString());
+        assertEquals("> pish tegj glob glob is 42\n", consoleOut.toString());
     }
 
     @Test
@@ -61,6 +61,7 @@ class IOHandlerTest {
         parser.parseQuery("glob is I");
         parser.parseQuery("prok is V");
         parser.parseQuery("glob prok Gold is 57800 Credits");
-        assertEquals("how many Credits is glob prok Gold ?", consoleOut.toString());
+        handler.outputAnswerToQuery("how many Credits is glob prok Gold ?", parser);
+        assertEquals("glob prok Gold is 57800 Credits\n", consoleOut.toString());
     }
 }
