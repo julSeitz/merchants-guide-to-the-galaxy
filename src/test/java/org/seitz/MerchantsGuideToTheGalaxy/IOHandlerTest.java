@@ -32,7 +32,8 @@ class IOHandlerTest {
 
     @Test
     void shouldPrintEmptyLineWhenNumeralIsSet() {
-        handler.outputAnswerToQuery("glob is I");
+        InputParser parser = new InputParser();
+        handler.outputAnswerToQuery("glob is I", parser);
         assertEquals("", consoleOut.toString());
     }
 }

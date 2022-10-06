@@ -8,11 +8,6 @@ import java.util.Scanner;
 public class IOHandler {
 
     /**
-     * The parser to process user input
-     */
-    private InputParser parser;
-
-    /**
      * The output
      */
     private String preamble;
@@ -21,7 +16,6 @@ public class IOHandler {
      * Constructor to set parser and firstOutput
      */
     public IOHandler() {
-        this.parser = new InputParser();
         this.preamble = "Type EXIT to quit:";
     }
 
@@ -30,7 +24,7 @@ public class IOHandler {
      *
      * @param query user query
      */
-    public void outputAnswerToQuery(String query) {
+    public void outputAnswerToQuery(String query, InputParser parser) {
         // TODO: implement
     }
 
@@ -40,7 +34,7 @@ public class IOHandler {
      * @param scanner   scanner to get user input
      * @return          answer if user wants to continue
      */
-    public boolean readAndWrite(Scanner scanner) {
+    public boolean readAndWrite(Scanner scanner, InputParser parser) {
         // TODO: implement
         return true;
     }
