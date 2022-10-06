@@ -62,6 +62,6 @@ class IOHandlerTest {
         parser.parseQuery("prok is V");
         parser.parseQuery("glob prok Gold is 57800 Credits");
         handler.outputAnswerToQuery("how many Credits is glob prok Gold ?", parser);
-        assertEquals("glob prok Gold is 57800 Credits\n", consoleOut.toString());
+        assertEquals("> glob prok Gold is 57800 Credits\n", consoleOut.toString());
     }
 }
