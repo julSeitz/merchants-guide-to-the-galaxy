@@ -76,10 +76,10 @@ class IOHandlerTest {
     //---------------------------------------START OF TESTS FOR readAndWrite()------------------------------------------
 
     @Test
-    void shouldReturnFalseWhenUserInputIsNotExit() {
+    void shouldReturnTrueWhenUserInputIsNotExit() {
         ByteArrayInputStream in = new ByteArrayInputStream("something".getBytes());
         System.setIn(in);
         Scanner scanner = new Scanner(in);
-        assertFalse(handler.readAndWrite(scanner, parser));
+        assertTrue(handler.readAndWrite(scanner, parser));
     }
 }
