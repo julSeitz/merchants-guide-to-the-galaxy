@@ -13,6 +13,7 @@ Thought process:
     Noticed gaps in test coverage of RomanNumeralCalculator and InputParser.
     Implemented class to handle IO and associated tests.
     Designed and implemented new tests to improve code coverage.
+    Refactored code
 
 Assumptions:
     1. The program should be able to process any 'intergalactic numeral' given.
