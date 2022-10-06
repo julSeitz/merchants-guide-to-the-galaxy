@@ -244,24 +244,24 @@ class RomanNumeralCalculatorTest {
     // Testing if subtraction works at the beginning and the end of a numeral, for numerals of even length
 
     @Test
-    void shouldEqualFour() throws IllegalArgumentException {
+    void shouldEqualFour() throws Exception {
         assertEquals(4, calculator.getNumeralValue("IV"));
     }
 
     @Test
-    void shouldEqualTwentyNine() throws IllegalArgumentException {
+    void shouldEqualTwentyNine() throws Exception {
         assertEquals(29, calculator.getNumeralValue("XXIX"));
     }
 
     // Testing if subtraction works at the beginning and the end of a numeral, for numerals of odd length
 
     @Test
-    void shouldEqualFourteen() throws IllegalArgumentException {
+    void shouldEqualFourteen() throws Exception {
         assertEquals(14, calculator.getNumeralValue("IXV"));
     }
 
     @Test
-    void shouldEqualNineteen() throws IllegalArgumentException {
+    void shouldEqualNineteen() throws Exception {
         assertEquals(19, calculator.getNumeralValue("XIX"));
     }
 

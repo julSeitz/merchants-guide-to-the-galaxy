@@ -127,10 +127,10 @@ public class RomanNumeralCalculator {
      * @param numeral   roman numeral
      * @return          the value of the given roman numeral as an arabic decimal numeral
      */
-    public int getNumeralValue(String numeral) throws IllegalArgumentException {
+    public int getNumeralValue(String numeral) throws Exception {
 
         if (!this.isValidNumeral(numeral)) {
-            throw new IllegalArgumentException("Invalid numeral");
+            throw new Exception("Invalid numeral");
         }
         return this.calculateValue(numeral);
     }
