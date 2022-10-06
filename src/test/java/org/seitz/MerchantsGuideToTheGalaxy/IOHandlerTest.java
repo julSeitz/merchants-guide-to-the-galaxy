@@ -36,4 +36,12 @@ class IOHandlerTest {
         handler.outputAnswerToQuery("glob is I", parser);
         assertEquals("", consoleOut.toString());
     }
+
+    @Test
+    void shouldPrintEmptyLineWhenMineralValueIsSet() {
+        InputParser parser = new InputParser();
+        parser.parseQuery("glob is I");
+        handler.outputAnswerToQuery("glob glob Silver is 34 Credits", parser);
+        assertEquals("", consoleOut.toString());
+    }
 }
