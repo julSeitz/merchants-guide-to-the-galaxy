@@ -346,6 +346,11 @@ class InputParserTest {
         handler.addIntergalacticNumeral("glob", "I");
         assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob glob Silver is 57800 Credits"));
     }
+    @Test
+    void shouldNotAcceptInvalidMineralForTypeTwo() {
+        handler.addIntergalacticNumeral("glob", "I");
+        assertEquals("I have no idea what you are talking about", handler.parseQuery("glob glob glob Credits is 57800 Credits"));
+    }
 
     //-------------------------------------------END OF TESTS FOR parseQuery()------------------------------------------
 
