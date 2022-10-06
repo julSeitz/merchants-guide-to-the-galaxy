@@ -44,4 +44,14 @@ class IOHandlerTest {
         handler.outputAnswerToQuery("glob glob Silver is 34 Credits", parser);
         assertEquals("", consoleOut.toString());
     }
+
+    @Test
+    void shouldPrintNumeralValue() {
+        InputParser parser = new InputParser();
+        parser.parseQuery("glob is I");
+        parser.parseQuery("pish is X");
+        parser.parseQuery("tegj is L");
+        handler.outputAnswerToQuery("how much is pish tegj glob glob ?", parser);
+        assertEquals("pish tegj glob glob is 42", consoleOut.toString());
+    }
 }
